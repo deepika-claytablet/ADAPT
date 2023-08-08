@@ -1,0 +1,3 @@
+Product,SKU,update
+Product,colour,no_update
+Product,desc,update

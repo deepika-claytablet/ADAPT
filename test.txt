@@ -1,0 +1,82 @@
+
+create table if not exists Product (
+colour	 varchar(50),
+colour_TMSP	 TIMESTAMP,
+SKU	 varchar(50),
+desc	 varchar(50),
+Product_SK	 varchar(50)
+)
+create table Perishable( 
+Perishable_SK	 varchar(50)
+);
+alter table Product add Perishable_SK	 varchar(50) ;
+alter table Product add foreign key (Perishable_SK) references Perishable(Perishable_SK);
+create table Dairy_Perishable( 
+Dairy_Perishable_SK	 varchar(50)
+);
+alter table Perishable add Dairy_Perishable_SK	 varchar(50) ;
+alter table Perishable add foreign key (Dairy_Perishable_SK) references Dairy_Perishable(Dairy_Perishable_SK);
+create table Fruit_Perishable( 
+Fruit_Perishable_SK	 varchar(50)
+);
+alter table Perishable add Fruit_Perishable_SK	 varchar(50) ;
+alter table Perishable add foreign key (Fruit_Perishable_SK) references Fruit_Perishable(Fruit_Perishable_SK);
+create table NonPerishable( 
+NonPerishable_SK	 varchar(50)
+);
+alter table Product add NonPerishable_SK	 varchar(50) ;
+alter table Product add foreign key (NonPerishable_SK) references NonPerishable(NonPerishable_SK);null
+
+create table Purchase (
+totaltobePaid	float,
+Purchase_Key	varchar(50)
+)
+
+alter table Purchase add Product_SK	varchar(50) ;
+alter table Purchase add foreign key (Product_SK) references Product(Product_SK);
+
+create table if not exists analysis_property (
+Adat varchar(50), 
+Attribute varchar(50), 
+Pan varchar(50), 
+is_Additive boolean, 
+cardinality int, 
+Applicability boolean, 
+PRIMARY KEY (Adat, Attribute, Pan)
+); 
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('Purchase', 'totaltobePaid', 'Product', true, 99999, true);
+
+create table if not exists dependentAdat (
+Adat_dependee varchar(50), 
+Adat_dependent varchar(50), 
+PRIMARY KEY (Adat_dependee, Adat_dependent)
+);  
+insert into dependentAdat (Adat_dependee, Adat_dependent) values ('Purchase','Purchase');
+
+create table IGST (
+RupSaleCost	float,
+IGST_Key	varchar(50)
+)
+alter table IGST add Purchase_Key	 varchar(50) ;
+alter table IGST add foreign key (Purchase_Key) references Purchase(Purchase_Key);
+
+create table TotalValue (
+value	float,
+TotalValue_Key	varchar(50)
+)
+alter table TotalValue add Purchase_Key	 varchar(50) ;
+alter table TotalValue add foreign key (Purchase_Key) references Purchase(Purchase_Key);
+
+create table CIF (
+CIFAmt	float,
+CIF_Key	varchar(50)
+)
+alter table CIF add TotalValue_Key	 varchar(50) ;
+alter table CIF add foreign key (TotalValue_Key) references TotalValue(TotalValue_Key);
+
+create table BCD (
+BCD Costs	float,
+BCD_Key	varchar(50)
+)
+alter table BCD add TotalValue_Key	 varchar(50) ;
+alter table BCD add foreign key (TotalValue_Key) references TotalValue(TotalValue_Key);

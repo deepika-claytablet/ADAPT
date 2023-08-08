@@ -1,0 +1,12 @@
+com\mycompany\tological\Adat.class
+com\mycompany\tological\PTR_Containment.class
+com\mycompany\tological\TreeNode.class
+com\mycompany\tological\PTR_atomic.class
+com\mycompany\tological\MultiLevelPan.class
+com\mycompany\tological\MultiLevelAdat.class
+com\mycompany\tological\PTR_specialized.class
+com\mycompany\tological\panToRelations.class
+com\mycompany\tological\Tological.class
+com\mycompany\tological\adatToRelations.class
+com\mycompany\tological\PTR_complex.class
+com\mycompany\tological\Pan.class
