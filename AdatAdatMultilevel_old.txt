@@ -1,0 +1,16 @@
+derived,totalCost,rentalRate
+derived,totalCost,perNightCost
+derived,totalCost,overtimeCost
+derived,totalCost,carDamageCost
+containment,sundryMaintenance,sundryMtLine
+containment,regularServicing,serviceLine
+containment,wheelBalancing,whBalanLine
+containment,tyreReplacement,tryeReplLine
+complex,maintenanceCosts,sundryMaintenance
+complex,maintenanceCosts,regularServicing
+complex,maintenanceCosts,wheelBalancing
+complex,maintenanceCosts,tyreReplacement
+complex,maintenanceCosts,PUC
+complex,maintenanceCosts,insuranceRenewal
+complex,maintenanceCosts,breakdownRepair
+

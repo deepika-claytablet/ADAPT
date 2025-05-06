@@ -1,0 +1,4 @@
+car,plateno,update
+car,color,update
+car,seats,update
+car,capacity,update

@@ -1,0 +1,5 @@
+derived,totalCost,rentalRate
+derived,totalCost,perNightCost
+derived,totalCost,overtimeCost
+derived,totalCost,carDamageCost
+

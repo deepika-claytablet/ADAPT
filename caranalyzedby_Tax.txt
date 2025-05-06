@@ -1,0 +1,12 @@
+tax_due,total_tax,filing_date,false,one to many,false
+tax_due,total_tax,tax_payer,true,one to many,true
+tax_on_income,tax_on_income,filing_date,false,one to many,false
+tax_on_income,tax_on_income,tax_payer,true,one to many,true
+ecess,e_amount,filing_date,false,one to many,false
+ecess,e_amount,tax_payer,true,one to many,true
+salary_tax,tax_on_salary,filing_date,false,one to many,false
+salary_tax,tax_on_salary,tax_payer,true,one to many,true
+gains_tax,tax_on_gains,filing_date,false,one to many,false
+gains_tax,tax_on_gains,tax_payer,true,one to many,true
+interest_tax,itax,filing_date,false,one to many,false
+interest_tax,itax,tax_payer,true,one to many,true

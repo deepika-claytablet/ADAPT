@@ -1,0 +1,1 @@
+perNightCost,structrued,dailyCost,float

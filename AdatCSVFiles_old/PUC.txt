@@ -1,0 +1,1 @@
+PUC,structrued,amount,float

@@ -1,0 +1,3 @@
+pan,filing_date,specialization1
+pan,tax_payer,complex
+adat,tax_due,complex1,notmixed

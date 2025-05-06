@@ -1,0 +1,1 @@
+CIF,structrued,CIFAmt,float

@@ -1,0 +1,1 @@
+insuranceRenewal,structured,renewalCost,float

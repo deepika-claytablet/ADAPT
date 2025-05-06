@@ -1,0 +1,2133 @@
+
+
+create table if not exists Dim_car (
+color	 varchar(50),
+plateno	 varchar(50),
+seats	 varchar(50),
+capacity	 varchar(50),
+car_SK	 varchar(50)
+)
+alter table Dim_car add automatic_wiper	 varchar(50);
+alter table Dim_car add automatic_wiper_TMSP	 TIMESTAMP;
+alter table Dim_car add sedanLuxury_SK	 varchar(50) ;
+alter table Dim_car add seat_fabric	 varchar(50);
+alter table Dim_car add seat_fabric_TMSP	 TIMESTAMP;
+alter table Dim_car add suvLuxury_SK	 varchar(50) ;
+alter table Dim_car add budget	 boolean;
+alter table Dim_car add budget_SK	 varchar(50) ;
+
+create table if not exists Dim_Date (
+date	 varchar(50),
+year	 varchar(50),
+day	 varchar(50),
+Date_SK	 varchar(50)
+)
+
+create table if not exists Dim_Customer (
+address	 varchar(50),
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+Customer_SK	 varchar(50)
+)
+
+create table if not exists Dim_damage (
+no	 varchar(50),
+part	 varchar(50),
+part_TMSP	 TIMESTAMP,
+damage_SK	 varchar(50)
+)
+alter table Dim_damage add area	 varchar(50);
+alter table Dim_damage add area_TMSP	 TIMESTAMP;
+alter table Dim_damage add bodyScratch_SK	 varchar(50) ;
+alter table Dim_damage add area	 varchar(50);
+alter table Dim_damage add area_TMSP	 TIMESTAMP;
+alter table Dim_damage add bodyDamage_SK	 varchar(50) ;
+alter table Dim_damage add part	 varchar(50);
+alter table Dim_damage add part_TMSP	 TIMESTAMP;
+alter table Dim_damage add mbPart_SK	 varchar(50) ;
+
+create table if not exists Dim_DateTime (
+date	 varchar(50),
+year	 varchar(50),
+time	 varchar(50),
+day	 varchar(50),
+DateTime_SK	 varchar(50)
+)
+
+create table if not exists Dim_Location (
+latitude	 varchar(50),
+name	 varchar(50),
+longitude	 varchar(50),
+Location_SK	 varchar(50)
+)
+
+create table if not exists Dim_insurancecompany (
+name	 varchar(50),
+id	 varchar(50),
+insurancecompany_SK	 varchar(50)
+)
+
+create table if not exists Dim_mechanic (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+mechanic_SK	 varchar(50)
+)
+
+create table if not exists Dim_serviceCenter (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+serviceCenter_SK	 varchar(50)
+)
+
+create table if not exists Dim_maintenanceType (
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+id	 varchar(50),
+id_TMSP	 TIMESTAMP,
+desc	 varchar(50),
+desc_TMSP	 TIMESTAMP,
+maintenanceType_SK	 varchar(50)
+)
+
+create table if not exists Dim_pucAgency (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+pucAgency_SK	 varchar(50)
+)
+
+create table if not exists Dim_balancingCompany (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+balancingCompany_SK	 varchar(50)
+)
+
+create table if not exists Dim_tyre (
+radial	 varchar(50),
+radial_TMSP	 TIMESTAMP,
+type	 varchar(50),
+type_TMSP	 TIMESTAMP,
+tyre_SK	 varchar(50)
+)
+
+create table if not exists Dim_tyrecompany (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+tyrecompany_SK	 varchar(50)
+)
+
+create table if not exists Dim_unitCompany (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+unitCompany_SK	 varchar(50)
+)
+
+create table if not exists Dim_whBalanLineNumber (
+line_Number	 varchar(50),
+whBalanLineNumber_SK	 varchar(50)
+)
+
+create table if not exists Dim_wheelBalancing_Number (
+Number	 varchar(50),
+wheelBalancing_Number_SK	 varchar(50)
+)
+
+create table if not exists Dim_regularServicing_Number (
+Number	 varchar(50),
+regularServicing_Number_SK	 varchar(50)
+)
+
+create table if not exists Dim_serviceLineNumber (
+line_Number	 varchar(50),
+serviceLineNumber_SK	 varchar(50)
+)
+
+create table if not exists Dim_sundryMaintenance_Number (
+Number	 varchar(50),
+sundryMaintenance_Number_SK	 varchar(50)
+)
+
+create table if not exists Dim_sundryMtLineNumber (
+line_Number	 varchar(50),
+sundryMtLineNumber_SK	 varchar(50)
+)
+
+create table if not exists Dim_unitCompany (
+address	 varchar(50),
+address_TMSP	 TIMESTAMP,
+name	 varchar(50),
+name_TMSP	 TIMESTAMP,
+unitCompany_SK	 varchar(50)
+)
+
+create table if not exists Dim_tyreReplacement_Number (
+Number	 varchar(50),
+tyreReplacement_Number_SK	 varchar(50)
+)
+
+create table if not exists Dim_tryeReplLineNumber (
+line_Number	 varchar(50),
+tryeReplLineNumber_SK	 varchar(50)
+)
+create table liveTracking (
+speed	float,
+liveTracking_Key	varchar(50)
+)
+alter table liveTracking add DateTime_SK	varchar(50) ;
+alter table liveTracking add foreign key (DateTime_SK) references DateTime(DateTime_SK);
+alter table liveTracking add Location_SK	varchar(50) ;
+alter table liveTracking add foreign key (Location_SK) references Location(Location_SK);
+alter table liveTracking add car_SK	varchar(50) ;
+alter table liveTracking add foreign key (car_SK) references car(car_SK);
+alter table liveTracking add Customer_SK	varchar(50) ;
+alter table liveTracking add foreign key (Customer_SK) references Customer(Customer_SK);
+
+create table analysis_property (
+Adat varchar(50), 
+Attribute varchar(50), 
+Pan varchar(50), 
+is_Additive boolean, 
+cardinality int, 
+Applicability boolean, 
+PRIMARY KEY (Adat, Attribute, Pan)
+); 
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('liveTracking', 'speed', 'dateTime', false, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('liveTracking', 'speed', 'location', false, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('liveTracking', 'speed', 'car', false, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('liveTracking', 'speed', 'customer', false, zero to many, false);
+
+create table dependentAdat (
+Adat_dependee varchar(50), 
+Adat_dependent varchar(50), 
+PRIMARY KEY (Adat_dependee, Adat_dependent)
+);  
+create table locationTimeSpent (
+restartTime	time,
+locationTimeSpent_Key	varchar(50)
+)
+alter table locationTimeSpent add DateTime_SK	varchar(50) ;
+alter table locationTimeSpent add foreign key (DateTime_SK) references DateTime(DateTime_SK);
+alter table locationTimeSpent add Location_SK	varchar(50) ;
+alter table locationTimeSpent add foreign key (Location_SK) references Location(Location_SK);
+alter table locationTimeSpent add car_SK	varchar(50) ;
+alter table locationTimeSpent add foreign key (car_SK) references car(car_SK);
+alter table locationTimeSpent add Customer_SK	varchar(50) ;
+alter table locationTimeSpent add foreign key (Customer_SK) references Customer(Customer_SK);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('locationTimeSpent', 'reStartTime', 'dateTime', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('locationTimeSpent', 'reStartTime', 'location', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('locationTimeSpent', 'reStartTime', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('locationTimeSpent', 'reStartTime', 'customer', true, zero to many, false); 
+
+
+create table totalCost (
+cost	float,
+totalCost_Key	varchar(50)
+)
+
+alter table totalCost add Date_SK	varchar(50) ;
+alter table totalCost add foreign key (Date_SK) references Date(Date_SK);
+alter table totalCost add car_SK	varchar(50) ;
+alter table totalCost add foreign key (car_SK) references car(car_SK);
+alter table totalCost add Customer_SK	varchar(50) ;
+alter table totalCost add foreign key (Customer_SK) references Customer(Customer_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('totalCost', 'cost', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('totalCost', 'cost', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('totalCost', 'cost', 'customer', true, zero to many, false);
+ 
+create table rentalRate (
+carFlatRate	float,
+rentalRate_Key	varchar(50)
+)
+
+alter table rentalRate add Date_SK	varchar(50) ;
+alter table rentalRate add foreign key (Date_SK) references Date(Date_SK);
+alter table rentalRate add car_SK	varchar(50) ;
+alter table rentalRate add foreign key (car_SK) references car(car_SK);
+alter table rentalRate add Customer_SK	varchar(50) ;
+alter table rentalRate add foreign key (Customer_SK) references Customer(Customer_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('rentalRate', 'carFlatRate', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('rentalRate', 'carFlatRate', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('rentalRate', 'carFlatRate', 'customer', true, zero to many, false);
+ 
+alter table totalCost add rentalRate_key	varchar(50) ;
+alter table totalCost add foreign key (rentalRate_key) references rentalRate(rentalRate_key);
+create table perNightCost (
+dailyCost	float,
+perNightCost_Key	varchar(50)
+)
+
+alter table perNightCost add Date_SK	varchar(50) ;
+alter table perNightCost add foreign key (Date_SK) references Date(Date_SK);
+alter table perNightCost add car_SK	varchar(50) ;
+alter table perNightCost add foreign key (car_SK) references car(car_SK);
+alter table perNightCost add Customer_SK	varchar(50) ;
+alter table perNightCost add foreign key (Customer_SK) references Customer(Customer_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('perNightCost', 'dailyCost', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('perNightCost', 'dailyCost', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('perNightCost', 'dailyCost', 'customer', true, zero to many, false);
+ 
+alter table totalCost add perNightCost_key	varchar(50) ;
+alter table totalCost add foreign key (perNightCost_key) references perNightCost(perNightCost_key);
+create table overtimeCost (
+overtimeCost	float,
+overtimeCost_Key	varchar(50)
+)
+
+alter table overtimeCost add Date_SK	varchar(50) ;
+alter table overtimeCost add foreign key (Date_SK) references Date(Date_SK);
+alter table overtimeCost add car_SK	varchar(50) ;
+alter table overtimeCost add foreign key (car_SK) references car(car_SK);
+alter table overtimeCost add Customer_SK	varchar(50) ;
+alter table overtimeCost add foreign key (Customer_SK) references Customer(Customer_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('overtimeCost', 'overtimeCost', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('overtimeCost', 'overtimeCost', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('overtimeCost', 'overtimeCost', 'customer', true, zero to many, false);
+ 
+alter table totalCost add overtimeCost_key	varchar(50) ;
+alter table totalCost add foreign key (overtimeCost_key) references overtimeCost(overtimeCost_key);
+create table carDamageCost (
+damageCost	float,
+carDamageCost_Key	varchar(50)
+)
+
+alter table carDamageCost add Date_SK	varchar(50) ;
+alter table carDamageCost add foreign key (Date_SK) references Date(Date_SK);
+alter table carDamageCost add car_SK	varchar(50) ;
+alter table carDamageCost add foreign key (car_SK) references car(car_SK);
+alter table carDamageCost add Customer_SK	varchar(50) ;
+alter table carDamageCost add foreign key (Customer_SK) references Customer(Customer_SK);
+alter table carDamageCost add damage_SK	varchar(50) ;
+alter table carDamageCost add foreign key (damage_SK) references damage(damage_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('carDamageCost', 'damageCost', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('carDamageCost', 'damageCost', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('carDamageCost', 'damageCost', 'customer', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('carDamageCost', 'damageCost', 'damage', true, zero to many, false);
+ 
+alter table totalCost add carDamageCost_key	varchar(50) ;
+alter table totalCost add foreign key (carDamageCost_key) references carDamageCost(carDamageCost_key);
+
+
+create table PUC (
+amount	float,
+PUC_Key	varchar(50)
+)
+alter table PUC add car_SK	varchar(50) ;
+alter table PUC add foreign key (car_SK) references car(car_SK);
+alter table PUC add Date_SK	varchar(50) ;
+alter table PUC add foreign key (Date_SK) references Date(Date_SK);
+alter table PUC add pucAgency_SK	varchar(50) ;
+alter table PUC add foreign key (pucAgency_SK) references pucAgency(pucAgency_SK);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('PUC', 'amount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('PUC', 'amount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('PUC', 'amount', 'pucAgency', true, zero to many, false); 
+
+
+create table regularServicing (
+servicingAmount	float,
+regularServicing_Key	varchar(50)
+)
+
+alter table regularServicing add car_SK	varchar(50) ;
+alter table regularServicing add foreign key (car_SK) references car(car_SK);
+alter table regularServicing add Date_SK	varchar(50) ;
+alter table regularServicing add foreign key (Date_SK) references Date(Date_SK);
+alter table regularServicing add serviceCenter_SK	varchar(50) ;
+alter table regularServicing add foreign key (serviceCenter_SK) references serviceCenter(serviceCenter_SK);
+alter table regularServicing add regularServicing_Number_SK	varchar(50) ;
+alter table regularServicing add foreign key (regularServicing_Number_SK) references regularServicing_Number(regularServicing_Number_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('regularServicing', 'servicingAmount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('regularServicing', 'servicingAmount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('regularServicing', 'servicingAmount', 'serviceCenter', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('regularServicing', 'servicingAmount', 'regularServicing_Number', true, zero to many, false);
+ 
+
+create table serviceLine (
+amount	float,
+serviceLine_Key	varchar(50)
+)
+
+alter table serviceLine add maintenanceType_SK	varchar(50) ;
+alter table serviceLine add foreign key (maintenanceType_SK) references maintenanceType(maintenanceType_SK);
+alter table serviceLine add car_SK	varchar(50) ;
+alter table serviceLine add foreign key (car_SK) references car(car_SK);
+alter table serviceLine add Date_SK	varchar(50) ;
+alter table serviceLine add foreign key (Date_SK) references Date(Date_SK);
+alter table serviceLine add serviceLineNumber_SK	varchar(50) ;
+alter table serviceLine add foreign key (serviceLineNumber_SK) references serviceLineNumber(serviceLineNumber_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('serviceLine', 'amount', 'maintenanceType', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('serviceLine', 'amount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('serviceLine', 'amount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('serviceLine', 'amount', 'serviceLineNumber', true, zero to many, false);
+ 
+alter table serviceLine add regularServicing_Key	 varchar(50) ;
+alter table serviceLine add foreign key (regularServicing_Key) references regularServicing(regularServicing_Key);
+create table insuranceRenewal (
+renewalCost	float,
+insuranceRenewal_Key	varchar(50)
+)
+alter table insuranceRenewal add car_SK	varchar(50) ;
+alter table insuranceRenewal add foreign key (car_SK) references car(car_SK);
+alter table insuranceRenewal add Date_SK	varchar(50) ;
+alter table insuranceRenewal add foreign key (Date_SK) references Date(Date_SK);
+alter table insuranceRenewal add insurancecompany_SK	varchar(50) ;
+alter table insuranceRenewal add foreign key (insurancecompany_SK) references insurancecompany(insurancecompany_SK);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('insuranceRenewal', 'renewalCost', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('insuranceRenewal', 'renewalCost', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('insuranceRenewal', 'renewalCost', 'insurancecompany', true, zero to many, true); 
+create table breakdownRepair (
+amount	float,
+breakdownRepair_Key	varchar(50)
+)
+alter table breakdownRepair add car_SK	varchar(50) ;
+alter table breakdownRepair add foreign key (car_SK) references car(car_SK);
+alter table breakdownRepair add Date_SK	varchar(50) ;
+alter table breakdownRepair add foreign key (Date_SK) references Date(Date_SK);
+alter table breakdownRepair add mechanic_SK	varchar(50) ;
+alter table breakdownRepair add foreign key (mechanic_SK) references mechanic(mechanic_SK);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('breakdownRepair', 'amount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('breakdownRepair', 'amount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('breakdownRepair', 'amount', 'mechanic', true, zero to many, false); 
+
+
+create table wheelBalancing (
+price	float,
+wheelBalancing_Key	varchar(50)
+)
+
+alter table wheelBalancing add car_SK	varchar(50) ;
+alter table wheelBalancing add foreign key (car_SK) references car(car_SK);
+alter table wheelBalancing add Date_SK	varchar(50) ;
+alter table wheelBalancing add foreign key (Date_SK) references Date(Date_SK);
+alter table wheelBalancing add wheelBalancing_Number_SK	varchar(50) ;
+alter table wheelBalancing add foreign key (wheelBalancing_Number_SK) references wheelBalancing_Number(wheelBalancing_Number_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('wheelBalancing', 'price', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('wheelBalancing', 'price', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('wheelBalancing', 'price', 'wheelBalancing_Number', true, zero to many, false);
+ 
+
+create table whBalanLine (
+amount	float,
+whBalanLine_Key	varchar(50)
+)
+
+alter table whBalanLine add car_SK	varchar(50) ;
+alter table whBalanLine add foreign key (car_SK) references car(car_SK);
+alter table whBalanLine add Date_SK	varchar(50) ;
+alter table whBalanLine add foreign key (Date_SK) references Date(Date_SK);
+alter table whBalanLine add balancingCompany_SK	varchar(50) ;
+alter table whBalanLine add foreign key (balancingCompany_SK) references balancingCompany(balancingCompany_SK);
+alter table whBalanLine add whBalanLineNumber_SK	varchar(50) ;
+alter table whBalanLine add foreign key (whBalanLineNumber_SK) references whBalanLineNumber(whBalanLineNumber_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('whBalanLine', 'amount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('whBalanLine', 'amount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('whBalanLine', 'amount', 'balancingCompany', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('whBalanLine', 'amount', 'whBalanLineNumber', true, zero to many, false);
+ 
+alter table whBalanLine add wheelBalancing_Key	 varchar(50) ;
+alter table whBalanLine add foreign key (wheelBalancing_Key) references wheelBalancing(wheelBalancing_Key);
+
+
+create table sundryMaintenance (
+smAmount	float,
+sundryMaintenance_Key	varchar(50)
+)
+
+alter table sundryMaintenance add car_SK	varchar(50) ;
+alter table sundryMaintenance add foreign key (car_SK) references car(car_SK);
+alter table sundryMaintenance add Date_SK	varchar(50) ;
+alter table sundryMaintenance add foreign key (Date_SK) references Date(Date_SK);
+alter table sundryMaintenance add mechanic_SK	varchar(50) ;
+alter table sundryMaintenance add foreign key (mechanic_SK) references mechanic(mechanic_SK);
+alter table sundryMaintenance add sundryMaintenance_Number_SK	varchar(50) ;
+alter table sundryMaintenance add foreign key (sundryMaintenance_Number_SK) references sundryMaintenance_Number(sundryMaintenance_Number_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMaintenance', 'smAmount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMaintenance', 'smAmount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMaintenance', 'smAmount', 'mechanic', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMaintenance', 'smAmount', 'sundryMaintenance_Number', true, zero to many, false);
+ 
+
+create table sundryMtLine (
+amount	float,
+quantity	float,
+sundryMtLine_Key	varchar(50)
+)
+
+alter table sundryMtLine add maintenanceType_SK	varchar(50) ;
+alter table sundryMtLine add foreign key (maintenanceType_SK) references maintenanceType(maintenanceType_SK);
+alter table sundryMtLine add car_SK	varchar(50) ;
+alter table sundryMtLine add foreign key (car_SK) references car(car_SK);
+alter table sundryMtLine add Date_SK	varchar(50) ;
+alter table sundryMtLine add foreign key (Date_SK) references Date(Date_SK);
+alter table sundryMtLine add sundryMtLineNumber_SK	varchar(50) ;
+alter table sundryMtLine add foreign key (sundryMtLineNumber_SK) references sundryMtLineNumber(sundryMtLineNumber_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMtLine', 'amount', 'maintenanceType', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMtLine', 'amount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMtLine', 'amount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('sundryMtLine', 'amount', 'sundryMtLineNumber', true, zero to many, false);
+ 
+alter table sundryMtLine add sundryMaintenance_Key	 varchar(50) ;
+alter table sundryMtLine add foreign key (sundryMaintenance_Key) references sundryMaintenance(sundryMaintenance_Key);
+
+
+create table tyreReplacement (
+price	float,
+tyreReplacement_Key	varchar(50)
+)
+
+alter table tyreReplacement add car_SK	varchar(50) ;
+alter table tyreReplacement add foreign key (car_SK) references car(car_SK);
+alter table tyreReplacement add Date_SK	varchar(50) ;
+alter table tyreReplacement add foreign key (Date_SK) references Date(Date_SK);
+alter table tyreReplacement add tyreReplacement_Number_SK	varchar(50) ;
+alter table tyreReplacement add foreign key (tyreReplacement_Number_SK) references tyreReplacement_Number(tyreReplacement_Number_SK);
+alter table tyreReplacement add unitCompany_SK	varchar(50) ;
+alter table tyreReplacement add foreign key (unitCompany_SK) references unitCompany(unitCompany_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tyreReplacement', 'price', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tyreReplacement', 'price', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tyreReplacement', 'price', 'tyreReplacement_Number', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tyreReplacement', 'price', 'unitCompany', true, zero to many, false);
+ 
+
+create table tryeReplLine (
+amount	float,
+tryeReplLine_Key	varchar(50)
+)
+
+alter table tryeReplLine add car_SK	varchar(50) ;
+alter table tryeReplLine add foreign key (car_SK) references car(car_SK);
+alter table tryeReplLine add Date_SK	varchar(50) ;
+alter table tryeReplLine add foreign key (Date_SK) references Date(Date_SK);
+alter table tryeReplLine add tyrecompany_SK	varchar(50) ;
+alter table tryeReplLine add foreign key (tyrecompany_SK) references tyrecompany(tyrecompany_SK);
+alter table tryeReplLine add tyre_SK	varchar(50) ;
+alter table tryeReplLine add foreign key (tyre_SK) references tyre(tyre_SK);
+alter table tryeReplLine add tryeReplLineNumber_SK	varchar(50) ;
+alter table tryeReplLine add foreign key (tryeReplLineNumber_SK) references tryeReplLineNumber(tryeReplLineNumber_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tryeReplLine', 'amount', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tryeReplLine', 'amount', 'date', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tryeReplLine', 'amount', 'tyrecompany', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tryeReplLine', 'amount', 'tyre', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tryeReplLine', 'amount', 'tryeReplLineNumber', true, zero to many, false);
+ 
+alter table tryeReplLine add tyreReplacement_Key	 varchar(50) ;
+alter table tryeReplLine add foreign key (tyreReplacement_Key) references tyreReplacement(tyreReplacement_Key);
+create table maintenanceCosts (
+cost	float,
+maintenanceCosts_Key	varchar(50)
+)
+
+alter table maintenanceCosts add car_SK	varchar(50) ;
+alter table maintenanceCosts add foreign key (car_SK) references car(car_SK);
+alter table maintenanceCosts add Date_SK	varchar(50) ;
+alter table maintenanceCosts add foreign key (Date_SK) references Date(Date_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('maintenanceCosts', 'cost', 'car', true, zero to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('maintenanceCosts', 'cost', 'date', true, zero to many, false);
+ 
+alter table maintenanceCosts add sundryMaintenance_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (sundryMaintenance_key) references sundryMaintenance(sundryMaintenance_key);
+alter table maintenanceCosts add regularServicing_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (regularServicing_key) references regularServicing(regularServicing_key);
+alter table maintenanceCosts add wheelBalancing_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (wheelBalancing_key) references wheelBalancing(wheelBalancing_key);
+alter table maintenanceCosts add tyreReplacement_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (tyreReplacement_key) references tyreReplacement(tyreReplacement_key);
+alter table maintenanceCosts add PUC_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (PUC_key) references PUC(PUC_key);
+alter table maintenanceCosts add insuranceRenewal_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (insuranceRenewal_key) references insuranceRenewal(insuranceRenewal_key);
+alter table maintenanceCosts add breakdownRepair_key	varchar(50) ;
+alter table maintenanceCosts add foreign key (breakdownRepair_key) references breakdownRepair(breakdownRepair_key);
+
+
+**Cassandra**
+ CREATE TABLE liveTracking (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,DateTime_Sur_Key  Bigint
+,DateTime_date  text
+,DateTime_day  text
+,DateTime_time  text
+,DateTime_year  text
+,Location_Sur_Key  Bigint
+,Location_latitude  text
+,Location_longitude  text
+,Location_name  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,liveTracking_Key  Bigint
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,speed  float
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE liveTracking_Meta (
+cardinality_liveTracking_speed_car  map<frozen<set<text>>,text>
+,cardinality_liveTracking_speed_customer  map<frozen<set<text>>,text>
+,cardinality_liveTracking_speed_dateTime  map<frozen<set<text>>,text>
+,cardinality_liveTracking_speed_location  map<frozen<set<text>>,text>
+,is_Additive_liveTracking_speed_car  map<frozen<set<text>>,Boolean>
+,is_Additive_liveTracking_speed_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_liveTracking_speed_dateTime  map<frozen<set<text>>,Boolean>
+,is_Additive_liveTracking_speed_location  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'liveTracking','liveTracking','Location','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'DateTime'
+put 'liveTracking', rowKeyValue, 'liveTracking:speed', value
+put 'liveTracking', rowKeyValue, 'liveTracking:liveTracking_Key', value
+put 'liveTracking', rowKeyValue, 'Location:Location_latitude', value
+put 'liveTracking', rowKeyValue, 'Location:Location_name', value
+put 'liveTracking', rowKeyValue, 'Location:Location_longitude', value
+put 'liveTracking', rowKeyValue, 'Location:Location_Sur_Key', value
+put 'liveTracking', rowKeyValue, 'car:car_color', value
+put 'liveTracking', rowKeyValue, 'car:car_plateno', value
+put 'liveTracking', rowKeyValue, 'car:car_seats', value
+put 'liveTracking', rowKeyValue, 'car:car_capacity', value
+put 'liveTracking', rowKeyValue, 'car:car_Sur_Key', value
+put 'liveTracking', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'liveTracking', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'liveTracking', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'liveTracking', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'liveTracking', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'liveTracking', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'liveTracking', rowKeyValue, 'budget:carBoolean', value
+put 'liveTracking', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'liveTracking', rowKeyValue, 'Customer:Customer_address', value
+put 'liveTracking', rowKeyValue, 'Customer:Customer_name', value
+put 'liveTracking', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'liveTracking', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'liveTracking', rowKeyValue, 'DateTime:DateTime_date', value
+put 'liveTracking', rowKeyValue, 'DateTime:DateTime_year', value
+put 'liveTracking', rowKeyValue, 'DateTime:DateTime_time', value
+put 'liveTracking', rowKeyValue, 'DateTime:DateTime_day', value
+put 'liveTracking', rowKeyValue, 'DateTime:DateTime_Sur_Key', value
+**HBase**
+ create 'liveTracking_Meta','is_Additive','cardinality'
+put 'liveTracking_Meta', rowKeyValue, 'is_Additive: liveTracking_speed_dateTime', value
+put 'liveTracking_Meta', rowKeyValue, 'cardinality: liveTracking_speed_dateTime', value
+put 'liveTracking_Meta', rowKeyValue, 'is_Additive: liveTracking_speed_location', value
+put 'liveTracking_Meta', rowKeyValue, 'cardinality: liveTracking_speed_location', value
+put 'liveTracking_Meta', rowKeyValue, 'is_Additive: liveTracking_speed_car', value
+put 'liveTracking_Meta', rowKeyValue, 'cardinality: liveTracking_speed_car', value
+put 'liveTracking_Meta', rowKeyValue, 'is_Additive: liveTracking_speed_customer', value
+put 'liveTracking_Meta', rowKeyValue, 'cardinality: liveTracking_speed_customer', value
+
+
+**Cassandra**
+ CREATE TABLE locationTimeSpent (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,DateTime_Sur_Key  Bigint
+,DateTime_date  text
+,DateTime_day  text
+,DateTime_time  text
+,DateTime_year  text
+,Location_Sur_Key  Bigint
+,Location_latitude  text
+,Location_longitude  text
+,Location_name  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,locationTimeSpent_Key  Bigint
+,restartTime  time
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE locationTimeSpent_Meta (
+cardinality_locationTimeSpent_reStartTime_car  map<frozen<set<text>>,text>
+,cardinality_locationTimeSpent_reStartTime_customer  map<frozen<set<text>>,text>
+,cardinality_locationTimeSpent_reStartTime_dateTime  map<frozen<set<text>>,text>
+,cardinality_locationTimeSpent_reStartTime_location  map<frozen<set<text>>,text>
+,is_Additive_locationTimeSpent_reStartTime_car  map<frozen<set<text>>,Boolean>
+,is_Additive_locationTimeSpent_reStartTime_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_locationTimeSpent_reStartTime_dateTime  map<frozen<set<text>>,Boolean>
+,is_Additive_locationTimeSpent_reStartTime_location  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'locationTimeSpent','locationTimeSpent','Location','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'DateTime'
+put 'locationTimeSpent', rowKeyValue, 'locationTimeSpent:restartTime', value
+put 'locationTimeSpent', rowKeyValue, 'locationTimeSpent:locationTimeSpent_Key', value
+put 'locationTimeSpent', rowKeyValue, 'Location:Location_latitude', value
+put 'locationTimeSpent', rowKeyValue, 'Location:Location_name', value
+put 'locationTimeSpent', rowKeyValue, 'Location:Location_longitude', value
+put 'locationTimeSpent', rowKeyValue, 'Location:Location_Sur_Key', value
+put 'locationTimeSpent', rowKeyValue, 'car:car_color', value
+put 'locationTimeSpent', rowKeyValue, 'car:car_plateno', value
+put 'locationTimeSpent', rowKeyValue, 'car:car_seats', value
+put 'locationTimeSpent', rowKeyValue, 'car:car_capacity', value
+put 'locationTimeSpent', rowKeyValue, 'car:car_Sur_Key', value
+put 'locationTimeSpent', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'locationTimeSpent', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'locationTimeSpent', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'locationTimeSpent', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'locationTimeSpent', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'locationTimeSpent', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'locationTimeSpent', rowKeyValue, 'budget:carBoolean', value
+put 'locationTimeSpent', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'locationTimeSpent', rowKeyValue, 'Customer:Customer_address', value
+put 'locationTimeSpent', rowKeyValue, 'Customer:Customer_name', value
+put 'locationTimeSpent', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'locationTimeSpent', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'locationTimeSpent', rowKeyValue, 'DateTime:DateTime_date', value
+put 'locationTimeSpent', rowKeyValue, 'DateTime:DateTime_year', value
+put 'locationTimeSpent', rowKeyValue, 'DateTime:DateTime_time', value
+put 'locationTimeSpent', rowKeyValue, 'DateTime:DateTime_day', value
+put 'locationTimeSpent', rowKeyValue, 'DateTime:DateTime_Sur_Key', value
+**HBase**
+ create 'locationTimeSpent_Meta','is_Additive','cardinality'
+put 'locationTimeSpent_Meta', rowKeyValue, 'is_Additive: locationTimeSpent_reStartTime_dateTime', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'cardinality: locationTimeSpent_reStartTime_dateTime', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'is_Additive: locationTimeSpent_reStartTime_location', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'cardinality: locationTimeSpent_reStartTime_location', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'is_Additive: locationTimeSpent_reStartTime_car', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'cardinality: locationTimeSpent_reStartTime_car', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'is_Additive: locationTimeSpent_reStartTime_customer', value
+put 'locationTimeSpent_Meta', rowKeyValue, 'cardinality: locationTimeSpent_reStartTime_customer', value
+
+
+**Cassandra**
+ CREATE TABLE rentalRate (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,carFlatRate  float
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE rentalRate_Meta (
+cardinality_rentalRate_carFlatRate_car  map<frozen<set<text>>,text>
+,cardinality_rentalRate_carFlatRate_customer  map<frozen<set<text>>,text>
+,cardinality_rentalRate_carFlatRate_date  map<frozen<set<text>>,text>
+,is_Additive_rentalRate_carFlatRate_car  map<frozen<set<text>>,Boolean>
+,is_Additive_rentalRate_carFlatRate_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_rentalRate_carFlatRate_date  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE perNightCost (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,dailyCost  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE perNightCost_Meta (
+cardinality_perNightCost_dailyCost_car  map<frozen<set<text>>,text>
+,cardinality_perNightCost_dailyCost_customer  map<frozen<set<text>>,text>
+,cardinality_perNightCost_dailyCost_date  map<frozen<set<text>>,text>
+,is_Additive_perNightCost_dailyCost_car  map<frozen<set<text>>,Boolean>
+,is_Additive_perNightCost_dailyCost_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_perNightCost_dailyCost_date  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE overtimeCost (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,overtimeCost  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE overtimeCost_Meta (
+cardinality_overtimeCost_overtimeCost_car  map<frozen<set<text>>,text>
+,cardinality_overtimeCost_overtimeCost_customer  map<frozen<set<text>>,text>
+,cardinality_overtimeCost_overtimeCost_date  map<frozen<set<text>>,text>
+,is_Additive_overtimeCost_overtimeCost_car  map<frozen<set<text>>,Boolean>
+,is_Additive_overtimeCost_overtimeCost_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_overtimeCost_overtimeCost_date  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE carDamageCost (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,bodyDamage_Sur_Key  Bigint
+,bodyDamage_area  map<time,text>
+,bodyScratch_Sur_Key  Bigint
+,bodyScratch_area  map<time,text>
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,damageCost  float
+,damage_Sur_Key  Bigint
+,damage_no  text
+,damage_part  map<time,text>
+,mbPart_Sur_Key  Bigint
+,mbPart_part  map<time,text>
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE carDamageCost_Meta (
+cardinality_carDamageCost_damageCost_car  map<frozen<set<text>>,text>
+,cardinality_carDamageCost_damageCost_customer  map<frozen<set<text>>,text>
+,cardinality_carDamageCost_damageCost_damage  map<frozen<set<text>>,text>
+,cardinality_carDamageCost_damageCost_date  map<frozen<set<text>>,text>
+,is_Additive_carDamageCost_damageCost_car  map<frozen<set<text>>,Boolean>
+,is_Additive_carDamageCost_damageCost_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_carDamageCost_damageCost_damage  map<frozen<set<text>>,Boolean>
+,is_Additive_carDamageCost_damageCost_date  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE totalCost (
+Customer_Sur_Key  Bigint
+,Customer_address  text
+,Customer_name  map<time,text>
+,Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,carFlatRate  float
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,cost  float
+,dailyCost  float
+,damageCost  float
+,overtimeCost  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE totalCost_Meta (
+cardinality_totalCost_cost_car  map<frozen<set<text>>,text>
+,cardinality_totalCost_cost_customer  map<frozen<set<text>>,text>
+,cardinality_totalCost_cost_date  map<frozen<set<text>>,text>
+,is_Additive_totalCost_cost_car  map<frozen<set<text>>,Boolean>
+,is_Additive_totalCost_cost_customer  map<frozen<set<text>>,Boolean>
+,is_Additive_totalCost_cost_date  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'rentalRate','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'Date'
+put 'rentalRate', rowKeyValue, 'rentalRate:carFlatRate', value
+put 'rentalRate', rowKeyValue, 'car:car_color', value
+put 'rentalRate', rowKeyValue, 'car:car_plateno', value
+put 'rentalRate', rowKeyValue, 'car:car_seats', value
+put 'rentalRate', rowKeyValue, 'car:car_capacity', value
+put 'rentalRate', rowKeyValue, 'car:car_Sur_Key', value
+put 'rentalRate', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'rentalRate', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'rentalRate', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'rentalRate', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'rentalRate', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'rentalRate', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'rentalRate', rowKeyValue, 'budget:carBoolean', value
+put 'rentalRate', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'rentalRate', rowKeyValue, 'Customer:Customer_address', value
+put 'rentalRate', rowKeyValue, 'Customer:Customer_name', value
+put 'rentalRate', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'rentalRate', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'rentalRate', rowKeyValue, 'Date:Date_date', value
+put 'rentalRate', rowKeyValue, 'Date:Date_year', value
+put 'rentalRate', rowKeyValue, 'Date:Date_day', value
+put 'rentalRate', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'rentalRate_Meta','is_Additive','cardinality'
+put 'rentalRate_Meta', rowKeyValue, 'is_Additive: rentalRate_carFlatRate_date', value
+put 'rentalRate_Meta', rowKeyValue, 'cardinality: rentalRate_carFlatRate_date', value
+put 'rentalRate_Meta', rowKeyValue, 'is_Additive: rentalRate_carFlatRate_car', value
+put 'rentalRate_Meta', rowKeyValue, 'cardinality: rentalRate_carFlatRate_car', value
+put 'rentalRate_Meta', rowKeyValue, 'is_Additive: rentalRate_carFlatRate_customer', value
+put 'rentalRate_Meta', rowKeyValue, 'cardinality: rentalRate_carFlatRate_customer', value
+
+**HBase**
+ create 'perNightCost','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'Date'
+put 'perNightCost', rowKeyValue, 'perNightCost:dailyCost', value
+put 'perNightCost', rowKeyValue, 'car:car_color', value
+put 'perNightCost', rowKeyValue, 'car:car_plateno', value
+put 'perNightCost', rowKeyValue, 'car:car_seats', value
+put 'perNightCost', rowKeyValue, 'car:car_capacity', value
+put 'perNightCost', rowKeyValue, 'car:car_Sur_Key', value
+put 'perNightCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'perNightCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'perNightCost', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'perNightCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'perNightCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'perNightCost', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'perNightCost', rowKeyValue, 'budget:carBoolean', value
+put 'perNightCost', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'perNightCost', rowKeyValue, 'Customer:Customer_address', value
+put 'perNightCost', rowKeyValue, 'Customer:Customer_name', value
+put 'perNightCost', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'perNightCost', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'perNightCost', rowKeyValue, 'Date:Date_date', value
+put 'perNightCost', rowKeyValue, 'Date:Date_year', value
+put 'perNightCost', rowKeyValue, 'Date:Date_day', value
+put 'perNightCost', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'perNightCost_Meta','is_Additive','cardinality'
+put 'perNightCost_Meta', rowKeyValue, 'is_Additive: perNightCost_dailyCost_date', value
+put 'perNightCost_Meta', rowKeyValue, 'cardinality: perNightCost_dailyCost_date', value
+put 'perNightCost_Meta', rowKeyValue, 'is_Additive: perNightCost_dailyCost_car', value
+put 'perNightCost_Meta', rowKeyValue, 'cardinality: perNightCost_dailyCost_car', value
+put 'perNightCost_Meta', rowKeyValue, 'is_Additive: perNightCost_dailyCost_customer', value
+put 'perNightCost_Meta', rowKeyValue, 'cardinality: perNightCost_dailyCost_customer', value
+
+**HBase**
+ create 'overtimeCost','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'Date'
+put 'overtimeCost', rowKeyValue, 'overtimeCost:overtimeCost', value
+put 'overtimeCost', rowKeyValue, 'car:car_color', value
+put 'overtimeCost', rowKeyValue, 'car:car_plateno', value
+put 'overtimeCost', rowKeyValue, 'car:car_seats', value
+put 'overtimeCost', rowKeyValue, 'car:car_capacity', value
+put 'overtimeCost', rowKeyValue, 'car:car_Sur_Key', value
+put 'overtimeCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'overtimeCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'overtimeCost', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'overtimeCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'overtimeCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'overtimeCost', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'overtimeCost', rowKeyValue, 'budget:carBoolean', value
+put 'overtimeCost', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'overtimeCost', rowKeyValue, 'Customer:Customer_address', value
+put 'overtimeCost', rowKeyValue, 'Customer:Customer_name', value
+put 'overtimeCost', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'overtimeCost', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'overtimeCost', rowKeyValue, 'Date:Date_date', value
+put 'overtimeCost', rowKeyValue, 'Date:Date_year', value
+put 'overtimeCost', rowKeyValue, 'Date:Date_day', value
+put 'overtimeCost', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'overtimeCost_Meta','is_Additive','cardinality'
+put 'overtimeCost_Meta', rowKeyValue, 'is_Additive: overtimeCost_overtimeCost_date', value
+put 'overtimeCost_Meta', rowKeyValue, 'cardinality: overtimeCost_overtimeCost_date', value
+put 'overtimeCost_Meta', rowKeyValue, 'is_Additive: overtimeCost_overtimeCost_car', value
+put 'overtimeCost_Meta', rowKeyValue, 'cardinality: overtimeCost_overtimeCost_car', value
+put 'overtimeCost_Meta', rowKeyValue, 'is_Additive: overtimeCost_overtimeCost_customer', value
+put 'overtimeCost_Meta', rowKeyValue, 'cardinality: overtimeCost_overtimeCost_customer', value
+
+**HBase**
+ create 'carDamageCost',{NAME=> 'damage', VERSIONS=>10},{NAME=> 'bodyScratch', VERSIONS=>10},{NAME=> 'bodyDamage', VERSIONS=>10},{NAME=> 'mbPart', VERSIONS=>10},'car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'Date'
+put 'carDamageCost', rowKeyValue, 'carDamageCost:damageCost', value
+put 'carDamageCost', rowKeyValue, 'damage:damage_no', value
+put 'carDamageCost', rowKeyValue, 'damage:damage_part', value
+put 'carDamageCost', rowKeyValue, 'damage:damage_part_Time', value
+put 'carDamageCost', rowKeyValue, 'damage:damage_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'bodyScratch:bodyScratch_area', value
+put 'carDamageCost', rowKeyValue, 'bodyScratch:bodyScratch_area_Time', value
+put 'carDamageCost', rowKeyValue, 'bodyScratch:bodyScratch_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'bodyDamage:bodyDamage_area', value
+put 'carDamageCost', rowKeyValue, 'bodyDamage:bodyDamage_area_Time', value
+put 'carDamageCost', rowKeyValue, 'bodyDamage:bodyDamage_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'mbPart:mbPart_part', value
+put 'carDamageCost', rowKeyValue, 'mbPart:mbPart_part_Time', value
+put 'carDamageCost', rowKeyValue, 'mbPart:mbPart_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'car:car_color', value
+put 'carDamageCost', rowKeyValue, 'car:car_plateno', value
+put 'carDamageCost', rowKeyValue, 'car:car_seats', value
+put 'carDamageCost', rowKeyValue, 'car:car_capacity', value
+put 'carDamageCost', rowKeyValue, 'car:car_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'carDamageCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'carDamageCost', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'carDamageCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'carDamageCost', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'budget:carBoolean', value
+put 'carDamageCost', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'Customer:Customer_address', value
+put 'carDamageCost', rowKeyValue, 'Customer:Customer_name', value
+put 'carDamageCost', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'carDamageCost', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'carDamageCost', rowKeyValue, 'Date:Date_date', value
+put 'carDamageCost', rowKeyValue, 'Date:Date_year', value
+put 'carDamageCost', rowKeyValue, 'Date:Date_day', value
+put 'carDamageCost', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'carDamageCost_Meta','is_Additive','cardinality'
+put 'carDamageCost_Meta', rowKeyValue, 'is_Additive: carDamageCost_damageCost_date', value
+put 'carDamageCost_Meta', rowKeyValue, 'cardinality: carDamageCost_damageCost_date', value
+put 'carDamageCost_Meta', rowKeyValue, 'is_Additive: carDamageCost_damageCost_car', value
+put 'carDamageCost_Meta', rowKeyValue, 'cardinality: carDamageCost_damageCost_car', value
+put 'carDamageCost_Meta', rowKeyValue, 'is_Additive: carDamageCost_damageCost_customer', value
+put 'carDamageCost_Meta', rowKeyValue, 'cardinality: carDamageCost_damageCost_customer', value
+put 'carDamageCost_Meta', rowKeyValue, 'is_Additive: carDamageCost_damageCost_damage', value
+put 'carDamageCost_Meta', rowKeyValue, 'cardinality: carDamageCost_damageCost_damage', value
+
+**HBase**
+ create 'totalCost','totalCost','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'Customer', VERSIONS=>10},'Date','Base_Attributes'
+put 'totalCost', rowKeyValue, 'totalCost:cost', value
+put 'totalCost', rowKeyValue, 'car:car_color', value
+put 'totalCost', rowKeyValue, 'car:car_plateno', value
+put 'totalCost', rowKeyValue, 'car:car_seats', value
+put 'totalCost', rowKeyValue, 'car:car_capacity', value
+put 'totalCost', rowKeyValue, 'car:car_Sur_Key', value
+put 'totalCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'totalCost', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'totalCost', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'totalCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'totalCost', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'totalCost', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'totalCost', rowKeyValue, 'budget:carBoolean', value
+put 'totalCost', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'totalCost', rowKeyValue, 'Customer:Customer_address', value
+put 'totalCost', rowKeyValue, 'Customer:Customer_name', value
+put 'totalCost', rowKeyValue, 'Customer:Customer_name_Time', value
+put 'totalCost', rowKeyValue, 'Customer:Customer_Sur_Key', value
+put 'totalCost', rowKeyValue, 'Date:Date_date', value
+put 'totalCost', rowKeyValue, 'Date:Date_year', value
+put 'totalCost', rowKeyValue, 'Date:Date_day', value
+put 'totalCost', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'totalCost', rowKeyValue, 'Base_Attributes:rentalRate_carFlatRate', value
+put 'totalCost', rowKeyValue, 'Base_Attributes:perNightCost_dailyCost', value
+put 'totalCost', rowKeyValue, 'Base_Attributes:overtimeCost_overtimeCost', value
+put 'totalCost', rowKeyValue, 'Base_Attributes:carDamageCost_damageCost', value
+**HBase**
+ create 'totalCost_Meta','is_Additive','cardinality'
+put 'totalCost_Meta', rowKeyValue, 'is_Additive: totalCost_cost_date', value
+put 'totalCost_Meta', rowKeyValue, 'cardinality: totalCost_cost_date', value
+put 'totalCost_Meta', rowKeyValue, 'is_Additive: totalCost_cost_car', value
+put 'totalCost_Meta', rowKeyValue, 'cardinality: totalCost_cost_car', value
+put 'totalCost_Meta', rowKeyValue, 'is_Additive: totalCost_cost_customer', value
+put 'totalCost_Meta', rowKeyValue, 'cardinality: totalCost_cost_customer', value
+
+
+
+**Cassandra**
+ CREATE TABLE PUC (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,PUC_Key  Bigint
+,amount  float
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,pucAgency_Sur_Key  Bigint
+,pucAgency_address  map<time,text>
+,pucAgency_name  map<time,text>
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE PUC_Meta (
+cardinality_PUC_amount_car  map<frozen<set<text>>,text>
+,cardinality_PUC_amount_date  map<frozen<set<text>>,text>
+,cardinality_PUC_amount_pucAgency  map<frozen<set<text>>,text>
+,is_Additive_PUC_amount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_PUC_amount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_PUC_amount_pucAgency  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'PUC','PUC',{NAME=> 'pucAgency', VERSIONS=>10},'car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date'
+put 'PUC', rowKeyValue, 'PUC:amount', value
+put 'PUC', rowKeyValue, 'PUC:PUC_Key', value
+put 'PUC', rowKeyValue, 'pucAgency:pucAgency_address', value
+put 'PUC', rowKeyValue, 'pucAgency:pucAgency_address_Time', value
+put 'PUC', rowKeyValue, 'pucAgency:pucAgency_name', value
+put 'PUC', rowKeyValue, 'pucAgency:pucAgency_name_Time', value
+put 'PUC', rowKeyValue, 'pucAgency:pucAgency_Sur_Key', value
+put 'PUC', rowKeyValue, 'car:car_color', value
+put 'PUC', rowKeyValue, 'car:car_plateno', value
+put 'PUC', rowKeyValue, 'car:car_seats', value
+put 'PUC', rowKeyValue, 'car:car_capacity', value
+put 'PUC', rowKeyValue, 'car:car_Sur_Key', value
+put 'PUC', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'PUC', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'PUC', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'PUC', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'PUC', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'PUC', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'PUC', rowKeyValue, 'budget:carBoolean', value
+put 'PUC', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'PUC', rowKeyValue, 'Date:Date_date', value
+put 'PUC', rowKeyValue, 'Date:Date_year', value
+put 'PUC', rowKeyValue, 'Date:Date_day', value
+put 'PUC', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'PUC_Meta','is_Additive','cardinality'
+put 'PUC_Meta', rowKeyValue, 'is_Additive: PUC_amount_car', value
+put 'PUC_Meta', rowKeyValue, 'cardinality: PUC_amount_car', value
+put 'PUC_Meta', rowKeyValue, 'is_Additive: PUC_amount_date', value
+put 'PUC_Meta', rowKeyValue, 'cardinality: PUC_amount_date', value
+put 'PUC_Meta', rowKeyValue, 'is_Additive: PUC_amount_pucAgency', value
+put 'PUC_Meta', rowKeyValue, 'cardinality: PUC_amount_pucAgency', value
+
+
+**Cassandra**
+ CREATE TABLE serviceLine (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,amount  float
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,maintenanceType_Sur_Key  Bigint
+,maintenanceType_desc  map<time,text>
+,maintenanceType_id  map<time,text>
+,maintenanceType_name  map<time,text>
+,regularServicing_Number_Number  text
+,regularServicing_Number_Sur_Key  Bigint
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,serviceCenter_Sur_Key  Bigint
+,serviceCenter_address  map<time,text>
+,serviceCenter_name  map<time,text>
+,serviceLineNumber_Sur_Key  Bigint
+,serviceLineNumber_line_Number  text
+,serviceLine_Key  Bigint
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE serviceLine_Meta (
+cardinality_regularServicing_servicingAmount_car  map<frozen<set<text>>,text>
+,cardinality_regularServicing_servicingAmount_date  map<frozen<set<text>>,text>
+,cardinality_regularServicing_servicingAmount_regularServicing_Number  map<frozen<set<text>>,text>
+,cardinality_regularServicing_servicingAmount_serviceCenter  map<frozen<set<text>>,text>
+,cardinality_serviceLine_amount_car  map<frozen<set<text>>,text>
+,cardinality_serviceLine_amount_date  map<frozen<set<text>>,text>
+,cardinality_serviceLine_amount_maintenanceType  map<frozen<set<text>>,text>
+,cardinality_serviceLine_amount_serviceLineNumber  map<frozen<set<text>>,text>
+,is_Additive_regularServicing_servicingAmount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_regularServicing_servicingAmount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_regularServicing_servicingAmount_regularServicing_Number  map<frozen<set<text>>,Boolean>
+,is_Additive_regularServicing_servicingAmount_serviceCenter  map<frozen<set<text>>,Boolean>
+,is_Additive_serviceLine_amount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_serviceLine_amount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_serviceLine_amount_maintenanceType  map<frozen<set<text>>,Boolean>
+,is_Additive_serviceLine_amount_serviceLineNumber  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE regularServicing (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,regularServicing_Key  Bigint
+,regularServicing_Number_Number  text
+,regularServicing_Number_Sur_Key  Bigint
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,serviceCenter_Sur_Key  Bigint
+,serviceCenter_address  map<time,text>
+,serviceCenter_name  map<time,text>
+,servicingAmount  float
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE regularServicing_Meta (
+cardinality_regularServicing_servicingAmount_car  map<frozen<set<text>>,text>
+,cardinality_regularServicing_servicingAmount_date  map<frozen<set<text>>,text>
+,cardinality_regularServicing_servicingAmount_regularServicing_Number  map<frozen<set<text>>,text>
+,cardinality_regularServicing_servicingAmount_serviceCenter  map<frozen<set<text>>,text>
+,is_Additive_regularServicing_servicingAmount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_regularServicing_servicingAmount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_regularServicing_servicingAmount_regularServicing_Number  map<frozen<set<text>>,Boolean>
+,is_Additive_regularServicing_servicingAmount_serviceCenter  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'serviceLine','serviceLine','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','serviceLineNumber',{NAME=> 'maintenanceType', VERSIONS=>10},'Date',{NAME=> 'serviceCenter', VERSIONS=>10},'regularServicing_Number'
+put 'serviceLine', rowKeyValue, 'serviceLine:amount', value
+put 'serviceLine', rowKeyValue, 'serviceLine:serviceLine_Key', value
+put 'serviceLine', rowKeyValue, 'car:car_color', value
+put 'serviceLine', rowKeyValue, 'car:car_plateno', value
+put 'serviceLine', rowKeyValue, 'car:car_seats', value
+put 'serviceLine', rowKeyValue, 'car:car_capacity', value
+put 'serviceLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'serviceLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'serviceLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'serviceLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'serviceLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'budget:carBoolean', value
+put 'serviceLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'serviceLineNumber:serviceLineNumber_line_Number', value
+put 'serviceLine', rowKeyValue, 'serviceLineNumber:serviceLineNumber_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_name', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_name_Time', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_id', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_id_Time', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_desc', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_desc_Time', value
+put 'serviceLine', rowKeyValue, 'maintenanceType:maintenanceType_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'Date:Date_date', value
+put 'serviceLine', rowKeyValue, 'Date:Date_year', value
+put 'serviceLine', rowKeyValue, 'Date:Date_day', value
+put 'serviceLine', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'serviceCenter:serviceCenter_address', value
+put 'serviceLine', rowKeyValue, 'serviceCenter:serviceCenter_address_Time', value
+put 'serviceLine', rowKeyValue, 'serviceCenter:serviceCenter_name', value
+put 'serviceLine', rowKeyValue, 'serviceCenter:serviceCenter_name_Time', value
+put 'serviceLine', rowKeyValue, 'serviceCenter:serviceCenter_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'car:car_color', value
+put 'serviceLine', rowKeyValue, 'car:car_plateno', value
+put 'serviceLine', rowKeyValue, 'car:car_seats', value
+put 'serviceLine', rowKeyValue, 'car:car_capacity', value
+put 'serviceLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'serviceLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'serviceLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'serviceLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'serviceLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'budget:carBoolean', value
+put 'serviceLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'regularServicing_Number:regularServicing_Number_Number', value
+put 'serviceLine', rowKeyValue, 'regularServicing_Number:regularServicing_Number_Sur_Key', value
+put 'serviceLine', rowKeyValue, 'Date:Date_date', value
+put 'serviceLine', rowKeyValue, 'Date:Date_year', value
+put 'serviceLine', rowKeyValue, 'Date:Date_day', value
+put 'serviceLine', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'serviceLine_Meta','is_Additive','cardinality'
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: serviceLine_amount_maintenanceType', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: serviceLine_amount_maintenanceType', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: serviceLine_amount_car', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: serviceLine_amount_car', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: serviceLine_amount_date', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: serviceLine_amount_date', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: serviceLine_amount_serviceLineNumber', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: serviceLine_amount_serviceLineNumber', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_car', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_car', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_date', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_date', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_serviceCenter', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_serviceCenter', value
+put 'serviceLine_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_regularServicing_Number', value
+put 'serviceLine_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_regularServicing_Number', value
+
+**HBase**
+ create 'regularServicing','regularServicing',{NAME=> 'serviceCenter', VERSIONS=>10},'car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','regularServicing_Number','Date'
+put 'regularServicing', rowKeyValue, 'regularServicing:servicingAmount', value
+put 'regularServicing', rowKeyValue, 'serviceCenter:serviceCenter_address', value
+put 'regularServicing', rowKeyValue, 'serviceCenter:serviceCenter_address_Time', value
+put 'regularServicing', rowKeyValue, 'serviceCenter:serviceCenter_name', value
+put 'regularServicing', rowKeyValue, 'serviceCenter:serviceCenter_name_Time', value
+put 'regularServicing', rowKeyValue, 'serviceCenter:serviceCenter_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'car:car_color', value
+put 'regularServicing', rowKeyValue, 'car:car_plateno', value
+put 'regularServicing', rowKeyValue, 'car:car_seats', value
+put 'regularServicing', rowKeyValue, 'car:car_capacity', value
+put 'regularServicing', rowKeyValue, 'car:car_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'regularServicing', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'regularServicing', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'regularServicing', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'regularServicing', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'budget:carBoolean', value
+put 'regularServicing', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'regularServicing_Number:regularServicing_Number_Number', value
+put 'regularServicing', rowKeyValue, 'regularServicing_Number:regularServicing_Number_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'Date:Date_date', value
+put 'regularServicing', rowKeyValue, 'Date:Date_year', value
+put 'regularServicing', rowKeyValue, 'Date:Date_day', value
+put 'regularServicing', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'regularServicing', rowKeyValue, 'regularServicing:regularServicing_Key', value
+**HBase**
+ create 'regularServicing_Meta','is_Additive','cardinality'
+put 'regularServicing_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_car', value
+put 'regularServicing_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_car', value
+put 'regularServicing_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_date', value
+put 'regularServicing_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_date', value
+put 'regularServicing_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_serviceCenter', value
+put 'regularServicing_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_serviceCenter', value
+put 'regularServicing_Meta', rowKeyValue, 'is_Additive: regularServicing_servicingAmount_regularServicing_Number', value
+put 'regularServicing_Meta', rowKeyValue, 'cardinality: regularServicing_servicingAmount_regularServicing_Number', value
+
+
+**Cassandra**
+ CREATE TABLE insuranceRenewal (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,insuranceRenewal_Key  Bigint
+,insurancecompany_Sur_Key  Bigint
+,insurancecompany_id  text
+,insurancecompany_name  text
+,renewalCost  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE insuranceRenewal_Meta (
+cardinality_insuranceRenewal_renewalCost_car  map<frozen<set<text>>,text>
+,cardinality_insuranceRenewal_renewalCost_date  map<frozen<set<text>>,text>
+,cardinality_insuranceRenewal_renewalCost_insurancecompany  map<frozen<set<text>>,text>
+,is_Additive_insuranceRenewal_renewalCost_car  map<frozen<set<text>>,Boolean>
+,is_Additive_insuranceRenewal_renewalCost_date  map<frozen<set<text>>,Boolean>
+,is_Additive_insuranceRenewal_renewalCost_insurancecompany  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'insuranceRenewal','insuranceRenewal','insurancecompany','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date'
+put 'insuranceRenewal', rowKeyValue, 'insuranceRenewal:renewalCost', value
+put 'insuranceRenewal', rowKeyValue, 'insuranceRenewal:insuranceRenewal_Key', value
+put 'insuranceRenewal', rowKeyValue, 'insurancecompany:insurancecompany_name', value
+put 'insuranceRenewal', rowKeyValue, 'insurancecompany:insurancecompany_id', value
+put 'insuranceRenewal', rowKeyValue, 'insurancecompany:insurancecompany_Sur_Key', value
+put 'insuranceRenewal', rowKeyValue, 'car:car_color', value
+put 'insuranceRenewal', rowKeyValue, 'car:car_plateno', value
+put 'insuranceRenewal', rowKeyValue, 'car:car_seats', value
+put 'insuranceRenewal', rowKeyValue, 'car:car_capacity', value
+put 'insuranceRenewal', rowKeyValue, 'car:car_Sur_Key', value
+put 'insuranceRenewal', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'insuranceRenewal', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'insuranceRenewal', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'insuranceRenewal', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'insuranceRenewal', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'insuranceRenewal', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'insuranceRenewal', rowKeyValue, 'budget:carBoolean', value
+put 'insuranceRenewal', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'insuranceRenewal', rowKeyValue, 'Date:Date_date', value
+put 'insuranceRenewal', rowKeyValue, 'Date:Date_year', value
+put 'insuranceRenewal', rowKeyValue, 'Date:Date_day', value
+put 'insuranceRenewal', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'insuranceRenewal_Meta','is_Additive','cardinality'
+put 'insuranceRenewal_Meta', rowKeyValue, 'is_Additive: insuranceRenewal_renewalCost_car', value
+put 'insuranceRenewal_Meta', rowKeyValue, 'cardinality: insuranceRenewal_renewalCost_car', value
+put 'insuranceRenewal_Meta', rowKeyValue, 'is_Additive: insuranceRenewal_renewalCost_date', value
+put 'insuranceRenewal_Meta', rowKeyValue, 'cardinality: insuranceRenewal_renewalCost_date', value
+put 'insuranceRenewal_Meta', rowKeyValue, 'is_Additive: insuranceRenewal_renewalCost_insurancecompany', value
+put 'insuranceRenewal_Meta', rowKeyValue, 'cardinality: insuranceRenewal_renewalCost_insurancecompany', value
+
+
+**Cassandra**
+ CREATE TABLE breakdownRepair (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,amount  float
+,breakdownRepair_Key  Bigint
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,mechanic_Sur_Key  Bigint
+,mechanic_address  map<time,text>
+,mechanic_name  map<time,text>
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE breakdownRepair_Meta (
+cardinality_breakdownRepair_amount_car  map<frozen<set<text>>,text>
+,cardinality_breakdownRepair_amount_date  map<frozen<set<text>>,text>
+,cardinality_breakdownRepair_amount_mechanic  map<frozen<set<text>>,text>
+,is_Additive_breakdownRepair_amount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_breakdownRepair_amount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_breakdownRepair_amount_mechanic  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'breakdownRepair','breakdownRepair',{NAME=> 'mechanic', VERSIONS=>10},'car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date'
+put 'breakdownRepair', rowKeyValue, 'breakdownRepair:amount', value
+put 'breakdownRepair', rowKeyValue, 'breakdownRepair:breakdownRepair_Key', value
+put 'breakdownRepair', rowKeyValue, 'mechanic:mechanic_address', value
+put 'breakdownRepair', rowKeyValue, 'mechanic:mechanic_address_Time', value
+put 'breakdownRepair', rowKeyValue, 'mechanic:mechanic_name', value
+put 'breakdownRepair', rowKeyValue, 'mechanic:mechanic_name_Time', value
+put 'breakdownRepair', rowKeyValue, 'mechanic:mechanic_Sur_Key', value
+put 'breakdownRepair', rowKeyValue, 'car:car_color', value
+put 'breakdownRepair', rowKeyValue, 'car:car_plateno', value
+put 'breakdownRepair', rowKeyValue, 'car:car_seats', value
+put 'breakdownRepair', rowKeyValue, 'car:car_capacity', value
+put 'breakdownRepair', rowKeyValue, 'car:car_Sur_Key', value
+put 'breakdownRepair', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'breakdownRepair', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'breakdownRepair', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'breakdownRepair', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'breakdownRepair', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'breakdownRepair', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'breakdownRepair', rowKeyValue, 'budget:carBoolean', value
+put 'breakdownRepair', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'breakdownRepair', rowKeyValue, 'Date:Date_date', value
+put 'breakdownRepair', rowKeyValue, 'Date:Date_year', value
+put 'breakdownRepair', rowKeyValue, 'Date:Date_day', value
+put 'breakdownRepair', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'breakdownRepair_Meta','is_Additive','cardinality'
+put 'breakdownRepair_Meta', rowKeyValue, 'is_Additive: breakdownRepair_amount_car', value
+put 'breakdownRepair_Meta', rowKeyValue, 'cardinality: breakdownRepair_amount_car', value
+put 'breakdownRepair_Meta', rowKeyValue, 'is_Additive: breakdownRepair_amount_date', value
+put 'breakdownRepair_Meta', rowKeyValue, 'cardinality: breakdownRepair_amount_date', value
+put 'breakdownRepair_Meta', rowKeyValue, 'is_Additive: breakdownRepair_amount_mechanic', value
+put 'breakdownRepair_Meta', rowKeyValue, 'cardinality: breakdownRepair_amount_mechanic', value
+
+
+**Cassandra**
+ CREATE TABLE whBalanLine (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,amount  float
+,balancingCompany_Sur_Key  Bigint
+,balancingCompany_address  map<time,text>
+,balancingCompany_name  map<time,text>
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,whBalanLineNumber_Sur_Key  Bigint
+,whBalanLineNumber_line_Number  text
+,whBalanLine_Key  Bigint
+,wheelBalancing_Number_Number  text
+,wheelBalancing_Number_Sur_Key  Bigint
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE whBalanLine_Meta (
+cardinality_whBalanLine_amount_balancingCompany  map<frozen<set<text>>,text>
+,cardinality_whBalanLine_amount_car  map<frozen<set<text>>,text>
+,cardinality_whBalanLine_amount_date  map<frozen<set<text>>,text>
+,cardinality_whBalanLine_amount_whBalanLineNumber  map<frozen<set<text>>,text>
+,cardinality_wheelBalancing_price_car  map<frozen<set<text>>,text>
+,cardinality_wheelBalancing_price_date  map<frozen<set<text>>,text>
+,cardinality_wheelBalancing_price_wheelBalancing_Number  map<frozen<set<text>>,text>
+,is_Additive_whBalanLine_amount_balancingCompany  map<frozen<set<text>>,Boolean>
+,is_Additive_whBalanLine_amount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_whBalanLine_amount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_whBalanLine_amount_whBalanLineNumber  map<frozen<set<text>>,Boolean>
+,is_Additive_wheelBalancing_price_car  map<frozen<set<text>>,Boolean>
+,is_Additive_wheelBalancing_price_date  map<frozen<set<text>>,Boolean>
+,is_Additive_wheelBalancing_price_wheelBalancing_Number  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE wheelBalancing (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,price  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,wheelBalancing_Key  Bigint
+,wheelBalancing_Number_Number  text
+,wheelBalancing_Number_Sur_Key  Bigint
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE wheelBalancing_Meta (
+cardinality_wheelBalancing_price_car  map<frozen<set<text>>,text>
+,cardinality_wheelBalancing_price_date  map<frozen<set<text>>,text>
+,cardinality_wheelBalancing_price_wheelBalancing_Number  map<frozen<set<text>>,text>
+,is_Additive_wheelBalancing_price_car  map<frozen<set<text>>,Boolean>
+,is_Additive_wheelBalancing_price_date  map<frozen<set<text>>,Boolean>
+,is_Additive_wheelBalancing_price_wheelBalancing_Number  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'whBalanLine','whBalanLine','whBalanLineNumber',{NAME=> 'balancingCompany', VERSIONS=>10},'car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date','wheelBalancing_Number'
+put 'whBalanLine', rowKeyValue, 'whBalanLine:amount', value
+put 'whBalanLine', rowKeyValue, 'whBalanLine:whBalanLine_Key', value
+put 'whBalanLine', rowKeyValue, 'whBalanLineNumber:whBalanLineNumber_line_Number', value
+put 'whBalanLine', rowKeyValue, 'whBalanLineNumber:whBalanLineNumber_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'balancingCompany:balancingCompany_address', value
+put 'whBalanLine', rowKeyValue, 'balancingCompany:balancingCompany_address_Time', value
+put 'whBalanLine', rowKeyValue, 'balancingCompany:balancingCompany_name', value
+put 'whBalanLine', rowKeyValue, 'balancingCompany:balancingCompany_name_Time', value
+put 'whBalanLine', rowKeyValue, 'balancingCompany:balancingCompany_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'car:car_color', value
+put 'whBalanLine', rowKeyValue, 'car:car_plateno', value
+put 'whBalanLine', rowKeyValue, 'car:car_seats', value
+put 'whBalanLine', rowKeyValue, 'car:car_capacity', value
+put 'whBalanLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'whBalanLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'whBalanLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'whBalanLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'whBalanLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'budget:carBoolean', value
+put 'whBalanLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_date', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_year', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_day', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'car:car_color', value
+put 'whBalanLine', rowKeyValue, 'car:car_plateno', value
+put 'whBalanLine', rowKeyValue, 'car:car_seats', value
+put 'whBalanLine', rowKeyValue, 'car:car_capacity', value
+put 'whBalanLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'whBalanLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'whBalanLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'whBalanLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'whBalanLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'budget:carBoolean', value
+put 'whBalanLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'wheelBalancing_Number:wheelBalancing_Number_Number', value
+put 'whBalanLine', rowKeyValue, 'wheelBalancing_Number:wheelBalancing_Number_Sur_Key', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_date', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_year', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_day', value
+put 'whBalanLine', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'whBalanLine_Meta','is_Additive','cardinality'
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: whBalanLine_amount_car', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: whBalanLine_amount_car', value
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: whBalanLine_amount_date', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: whBalanLine_amount_date', value
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: whBalanLine_amount_balancingCompany', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: whBalanLine_amount_balancingCompany', value
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: whBalanLine_amount_whBalanLineNumber', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: whBalanLine_amount_whBalanLineNumber', value
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: wheelBalancing_price_car', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: wheelBalancing_price_car', value
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: wheelBalancing_price_date', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: wheelBalancing_price_date', value
+put 'whBalanLine_Meta', rowKeyValue, 'is_Additive: wheelBalancing_price_wheelBalancing_Number', value
+put 'whBalanLine_Meta', rowKeyValue, 'cardinality: wheelBalancing_price_wheelBalancing_Number', value
+
+**HBase**
+ create 'wheelBalancing','wheelBalancing','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','wheelBalancing_Number','Date'
+put 'wheelBalancing', rowKeyValue, 'wheelBalancing:price', value
+put 'wheelBalancing', rowKeyValue, 'car:car_color', value
+put 'wheelBalancing', rowKeyValue, 'car:car_plateno', value
+put 'wheelBalancing', rowKeyValue, 'car:car_seats', value
+put 'wheelBalancing', rowKeyValue, 'car:car_capacity', value
+put 'wheelBalancing', rowKeyValue, 'car:car_Sur_Key', value
+put 'wheelBalancing', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'wheelBalancing', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'wheelBalancing', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'wheelBalancing', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'wheelBalancing', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'wheelBalancing', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'wheelBalancing', rowKeyValue, 'budget:carBoolean', value
+put 'wheelBalancing', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'wheelBalancing', rowKeyValue, 'wheelBalancing_Number:wheelBalancing_Number_Number', value
+put 'wheelBalancing', rowKeyValue, 'wheelBalancing_Number:wheelBalancing_Number_Sur_Key', value
+put 'wheelBalancing', rowKeyValue, 'Date:Date_date', value
+put 'wheelBalancing', rowKeyValue, 'Date:Date_year', value
+put 'wheelBalancing', rowKeyValue, 'Date:Date_day', value
+put 'wheelBalancing', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'wheelBalancing', rowKeyValue, 'wheelBalancing:wheelBalancing_Key', value
+**HBase**
+ create 'wheelBalancing_Meta','is_Additive','cardinality'
+put 'wheelBalancing_Meta', rowKeyValue, 'is_Additive: wheelBalancing_price_car', value
+put 'wheelBalancing_Meta', rowKeyValue, 'cardinality: wheelBalancing_price_car', value
+put 'wheelBalancing_Meta', rowKeyValue, 'is_Additive: wheelBalancing_price_date', value
+put 'wheelBalancing_Meta', rowKeyValue, 'cardinality: wheelBalancing_price_date', value
+put 'wheelBalancing_Meta', rowKeyValue, 'is_Additive: wheelBalancing_price_wheelBalancing_Number', value
+put 'wheelBalancing_Meta', rowKeyValue, 'cardinality: wheelBalancing_price_wheelBalancing_Number', value
+
+
+**Cassandra**
+ CREATE TABLE sundryMtLine (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,amount  float
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,maintenanceType_Sur_Key  Bigint
+,maintenanceType_desc  map<time,text>
+,maintenanceType_id  map<time,text>
+,maintenanceType_name  map<time,text>
+,mechanic_Sur_Key  Bigint
+,mechanic_address  map<time,text>
+,mechanic_name  map<time,text>
+,quantity  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,sundryMaintenance_Number_Number  text
+,sundryMaintenance_Number_Sur_Key  Bigint
+,sundryMtLineNumber_Sur_Key  Bigint
+,sundryMtLineNumber_line_Number  text
+,sundryMtLine_Key  Bigint
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE sundryMtLine_Meta (
+cardinality_sundryMaintenance_smAmount_car  map<frozen<set<text>>,text>
+,cardinality_sundryMaintenance_smAmount_date  map<frozen<set<text>>,text>
+,cardinality_sundryMaintenance_smAmount_mechanic  map<frozen<set<text>>,text>
+,cardinality_sundryMaintenance_smAmount_sundryMaintenance_Number  map<frozen<set<text>>,text>
+,cardinality_sundryMtLine_amount_car  map<frozen<set<text>>,text>
+,cardinality_sundryMtLine_amount_date  map<frozen<set<text>>,text>
+,cardinality_sundryMtLine_amount_maintenanceType  map<frozen<set<text>>,text>
+,cardinality_sundryMtLine_amount_sundryMtLineNumber  map<frozen<set<text>>,text>
+,is_Additive_sundryMaintenance_smAmount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMaintenance_smAmount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMaintenance_smAmount_mechanic  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMaintenance_smAmount_sundryMaintenance_Number  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMtLine_amount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMtLine_amount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMtLine_amount_maintenanceType  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMtLine_amount_sundryMtLineNumber  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE sundryMaintenance (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,mechanic_Sur_Key  Bigint
+,mechanic_address  map<time,text>
+,mechanic_name  map<time,text>
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,smAmount  float
+,sundryMaintenance_Key  Bigint
+,sundryMaintenance_Number_Number  text
+,sundryMaintenance_Number_Sur_Key  Bigint
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE sundryMaintenance_Meta (
+cardinality_sundryMaintenance_smAmount_car  map<frozen<set<text>>,text>
+,cardinality_sundryMaintenance_smAmount_date  map<frozen<set<text>>,text>
+,cardinality_sundryMaintenance_smAmount_mechanic  map<frozen<set<text>>,text>
+,cardinality_sundryMaintenance_smAmount_sundryMaintenance_Number  map<frozen<set<text>>,text>
+,is_Additive_sundryMaintenance_smAmount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMaintenance_smAmount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMaintenance_smAmount_mechanic  map<frozen<set<text>>,Boolean>
+,is_Additive_sundryMaintenance_smAmount_sundryMaintenance_Number  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'sundryMtLine','sundryMtLine','sundryMtLineNumber','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget',{NAME=> 'maintenanceType', VERSIONS=>10},'Date',{NAME=> 'mechanic', VERSIONS=>10},'sundryMaintenance_Number'
+put 'sundryMtLine', rowKeyValue, 'sundryMtLine:amount', value
+put 'sundryMtLine', rowKeyValue, 'sundryMtLine:quantity', value
+put 'sundryMtLine', rowKeyValue, 'sundryMtLine:sundryMtLine_Key', value
+put 'sundryMtLine', rowKeyValue, 'sundryMtLineNumber:sundryMtLineNumber_line_Number', value
+put 'sundryMtLine', rowKeyValue, 'sundryMtLineNumber:sundryMtLineNumber_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'car:car_color', value
+put 'sundryMtLine', rowKeyValue, 'car:car_plateno', value
+put 'sundryMtLine', rowKeyValue, 'car:car_seats', value
+put 'sundryMtLine', rowKeyValue, 'car:car_capacity', value
+put 'sundryMtLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'sundryMtLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'sundryMtLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'sundryMtLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'sundryMtLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'budget:carBoolean', value
+put 'sundryMtLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_name', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_name_Time', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_id', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_id_Time', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_desc', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_desc_Time', value
+put 'sundryMtLine', rowKeyValue, 'maintenanceType:maintenanceType_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_date', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_year', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_day', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'mechanic:mechanic_address', value
+put 'sundryMtLine', rowKeyValue, 'mechanic:mechanic_address_Time', value
+put 'sundryMtLine', rowKeyValue, 'mechanic:mechanic_name', value
+put 'sundryMtLine', rowKeyValue, 'mechanic:mechanic_name_Time', value
+put 'sundryMtLine', rowKeyValue, 'mechanic:mechanic_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'sundryMaintenance_Number:sundryMaintenance_Number_Number', value
+put 'sundryMtLine', rowKeyValue, 'sundryMaintenance_Number:sundryMaintenance_Number_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'car:car_color', value
+put 'sundryMtLine', rowKeyValue, 'car:car_plateno', value
+put 'sundryMtLine', rowKeyValue, 'car:car_seats', value
+put 'sundryMtLine', rowKeyValue, 'car:car_capacity', value
+put 'sundryMtLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'sundryMtLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'sundryMtLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'sundryMtLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'sundryMtLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'budget:carBoolean', value
+put 'sundryMtLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_date', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_year', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_day', value
+put 'sundryMtLine', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'sundryMtLine_Meta','is_Additive','cardinality'
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMtLine_amount_maintenanceType', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMtLine_amount_maintenanceType', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMtLine_amount_car', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMtLine_amount_car', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMtLine_amount_date', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMtLine_amount_date', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMtLine_amount_sundryMtLineNumber', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMtLine_amount_sundryMtLineNumber', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_car', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_car', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_date', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_date', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_mechanic', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_mechanic', value
+put 'sundryMtLine_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_sundryMaintenance_Number', value
+put 'sundryMtLine_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_sundryMaintenance_Number', value
+
+**HBase**
+ create 'sundryMaintenance','sundryMaintenance',{NAME=> 'mechanic', VERSIONS=>10},'sundryMaintenance_Number','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date'
+put 'sundryMaintenance', rowKeyValue, 'sundryMaintenance:smAmount', value
+put 'sundryMaintenance', rowKeyValue, 'mechanic:mechanic_address', value
+put 'sundryMaintenance', rowKeyValue, 'mechanic:mechanic_address_Time', value
+put 'sundryMaintenance', rowKeyValue, 'mechanic:mechanic_name', value
+put 'sundryMaintenance', rowKeyValue, 'mechanic:mechanic_name_Time', value
+put 'sundryMaintenance', rowKeyValue, 'mechanic:mechanic_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'sundryMaintenance_Number:sundryMaintenance_Number_Number', value
+put 'sundryMaintenance', rowKeyValue, 'sundryMaintenance_Number:sundryMaintenance_Number_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'car:car_color', value
+put 'sundryMaintenance', rowKeyValue, 'car:car_plateno', value
+put 'sundryMaintenance', rowKeyValue, 'car:car_seats', value
+put 'sundryMaintenance', rowKeyValue, 'car:car_capacity', value
+put 'sundryMaintenance', rowKeyValue, 'car:car_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'sundryMaintenance', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'sundryMaintenance', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'sundryMaintenance', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'sundryMaintenance', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'budget:carBoolean', value
+put 'sundryMaintenance', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'Date:Date_date', value
+put 'sundryMaintenance', rowKeyValue, 'Date:Date_year', value
+put 'sundryMaintenance', rowKeyValue, 'Date:Date_day', value
+put 'sundryMaintenance', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'sundryMaintenance', rowKeyValue, 'sundryMaintenance:sundryMaintenance_Key', value
+**HBase**
+ create 'sundryMaintenance_Meta','is_Additive','cardinality'
+put 'sundryMaintenance_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_car', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_car', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_date', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_date', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_mechanic', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_mechanic', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'is_Additive: sundryMaintenance_smAmount_sundryMaintenance_Number', value
+put 'sundryMaintenance_Meta', rowKeyValue, 'cardinality: sundryMaintenance_smAmount_sundryMaintenance_Number', value
+
+
+**Cassandra**
+ CREATE TABLE tryeReplLine (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,amount  float
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,tryeReplLineNumber_Sur_Key  Bigint
+,tryeReplLineNumber_line_Number  text
+,tryeReplLine_Key  Bigint
+,tyreReplacement_Number_Number  text
+,tyreReplacement_Number_Sur_Key  Bigint
+,tyre_Sur_Key  Bigint
+,tyre_radial  map<time,text>
+,tyre_type  map<time,text>
+,tyrecompany_Sur_Key  Bigint
+,tyrecompany_address  map<time,text>
+,tyrecompany_name  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE tryeReplLine_Meta (
+cardinality_tryeReplLine_amount_car  map<frozen<set<text>>,text>
+,cardinality_tryeReplLine_amount_date  map<frozen<set<text>>,text>
+,cardinality_tryeReplLine_amount_tryeReplLineNumber  map<frozen<set<text>>,text>
+,cardinality_tryeReplLine_amount_tyre  map<frozen<set<text>>,text>
+,cardinality_tryeReplLine_amount_tyrecompany  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_car  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_date  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_tyreReplacement_Number  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_unitCompany  map<frozen<set<text>>,text>
+,is_Additive_tryeReplLine_amount_car  map<frozen<set<text>>,Boolean>
+,is_Additive_tryeReplLine_amount_date  map<frozen<set<text>>,Boolean>
+,is_Additive_tryeReplLine_amount_tryeReplLineNumber  map<frozen<set<text>>,Boolean>
+,is_Additive_tryeReplLine_amount_tyre  map<frozen<set<text>>,Boolean>
+,is_Additive_tryeReplLine_amount_tyrecompany  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_car  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_date  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_tyreReplacement_Number  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_unitCompany  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**Cassandra**
+ CREATE TABLE tyreReplacement (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,price  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,tyreReplacement_Key  Bigint
+,tyreReplacement_Number_Number  text
+,tyreReplacement_Number_Sur_Key  Bigint
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE tyreReplacement_Meta (
+cardinality_tyreReplacement_price_car  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_date  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_tyreReplacement_Number  map<frozen<set<text>>,text>
+,cardinality_tyreReplacement_price_unitCompany  map<frozen<set<text>>,text>
+,is_Additive_tyreReplacement_price_car  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_date  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_tyreReplacement_Number  map<frozen<set<text>>,Boolean>
+,is_Additive_tyreReplacement_price_unitCompany  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'tryeReplLine','tryeReplLine','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','tryeReplLineNumber',{NAME=> 'tyre', VERSIONS=>10},{NAME=> 'tyrecompany', VERSIONS=>10},'Date','tyreReplacement_Number'
+put 'tryeReplLine', rowKeyValue, 'tryeReplLine:amount', value
+put 'tryeReplLine', rowKeyValue, 'tryeReplLine:tryeReplLine_Key', value
+put 'tryeReplLine', rowKeyValue, 'car:car_color', value
+put 'tryeReplLine', rowKeyValue, 'car:car_plateno', value
+put 'tryeReplLine', rowKeyValue, 'car:car_seats', value
+put 'tryeReplLine', rowKeyValue, 'car:car_capacity', value
+put 'tryeReplLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'tryeReplLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'tryeReplLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'tryeReplLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'tryeReplLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'budget:carBoolean', value
+put 'tryeReplLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'tryeReplLineNumber:tryeReplLineNumber_line_Number', value
+put 'tryeReplLine', rowKeyValue, 'tryeReplLineNumber:tryeReplLineNumber_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'tyre:tyre_radial', value
+put 'tryeReplLine', rowKeyValue, 'tyre:tyre_radial_Time', value
+put 'tryeReplLine', rowKeyValue, 'tyre:tyre_type', value
+put 'tryeReplLine', rowKeyValue, 'tyre:tyre_type_Time', value
+put 'tryeReplLine', rowKeyValue, 'tyre:tyre_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'tyrecompany:tyrecompany_address', value
+put 'tryeReplLine', rowKeyValue, 'tyrecompany:tyrecompany_address_Time', value
+put 'tryeReplLine', rowKeyValue, 'tyrecompany:tyrecompany_name', value
+put 'tryeReplLine', rowKeyValue, 'tyrecompany:tyrecompany_name_Time', value
+put 'tryeReplLine', rowKeyValue, 'tyrecompany:tyrecompany_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_date', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_year', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_day', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'tyreReplacement_Number:tyreReplacement_Number_Number', value
+put 'tryeReplLine', rowKeyValue, 'tyreReplacement_Number:tyreReplacement_Number_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'car:car_color', value
+put 'tryeReplLine', rowKeyValue, 'car:car_plateno', value
+put 'tryeReplLine', rowKeyValue, 'car:car_seats', value
+put 'tryeReplLine', rowKeyValue, 'car:car_capacity', value
+put 'tryeReplLine', rowKeyValue, 'car:car_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'tryeReplLine', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'tryeReplLine', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'tryeReplLine', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'tryeReplLine', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'budget:carBoolean', value
+put 'tryeReplLine', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_date', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_year', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_day', value
+put 'tryeReplLine', rowKeyValue, 'Date:Date_Sur_Key', value
+**HBase**
+ create 'tryeReplLine_Meta','is_Additive','cardinality'
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tryeReplLine_amount_car', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tryeReplLine_amount_car', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tryeReplLine_amount_date', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tryeReplLine_amount_date', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tryeReplLine_amount_tyrecompany', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tryeReplLine_amount_tyrecompany', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tryeReplLine_amount_tyre', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tryeReplLine_amount_tyre', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tryeReplLine_amount_tryeReplLineNumber', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tryeReplLine_amount_tryeReplLineNumber', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_car', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_car', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_date', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_date', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_tyreReplacement_Number', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_tyreReplacement_Number', value
+put 'tryeReplLine_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_unitCompany', value
+put 'tryeReplLine_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_unitCompany', value
+
+**HBase**
+ create 'tyreReplacement','tyreReplacement','tyreReplacement_Number','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date'
+put 'tyreReplacement', rowKeyValue, 'tyreReplacement:price', value
+put 'tyreReplacement', rowKeyValue, 'tyreReplacement_Number:tyreReplacement_Number_Number', value
+put 'tyreReplacement', rowKeyValue, 'tyreReplacement_Number:tyreReplacement_Number_Sur_Key', value
+put 'tyreReplacement', rowKeyValue, 'car:car_color', value
+put 'tyreReplacement', rowKeyValue, 'car:car_plateno', value
+put 'tyreReplacement', rowKeyValue, 'car:car_seats', value
+put 'tyreReplacement', rowKeyValue, 'car:car_capacity', value
+put 'tyreReplacement', rowKeyValue, 'car:car_Sur_Key', value
+put 'tyreReplacement', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'tyreReplacement', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'tyreReplacement', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'tyreReplacement', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'tyreReplacement', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'tyreReplacement', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'tyreReplacement', rowKeyValue, 'budget:carBoolean', value
+put 'tyreReplacement', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'tyreReplacement', rowKeyValue, 'Date:Date_date', value
+put 'tyreReplacement', rowKeyValue, 'Date:Date_year', value
+put 'tyreReplacement', rowKeyValue, 'Date:Date_day', value
+put 'tyreReplacement', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'tyreReplacement', rowKeyValue, 'tyreReplacement:tyreReplacement_Key', value
+**HBase**
+ create 'tyreReplacement_Meta','is_Additive','cardinality'
+put 'tyreReplacement_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_car', value
+put 'tyreReplacement_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_car', value
+put 'tyreReplacement_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_date', value
+put 'tyreReplacement_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_date', value
+put 'tyreReplacement_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_tyreReplacement_Number', value
+put 'tyreReplacement_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_tyreReplacement_Number', value
+put 'tyreReplacement_Meta', rowKeyValue, 'is_Additive: tyreReplacement_price_unitCompany', value
+put 'tyreReplacement_Meta', rowKeyValue, 'cardinality: tyreReplacement_price_unitCompany', value
+
+
+**Cassandra**
+ CREATE TABLE maintenanceCosts (
+Date_Sur_Key  Bigint
+,Date_date  text
+,Date_day  text
+,Date_year  text
+,amount  float
+,budget_Sur_Key  Bigint
+,budget_car  Boolean
+,car_Sur_Key  Bigint
+,car_capacity  text
+,car_color  text
+,car_plateno  text
+,car_seats  text
+,cost  float
+,price  float
+,renewalCost  float
+,sedanLuxury_Sur_Key  Bigint
+,sedanLuxury_automatic_wiper  map<time,text>
+,servicingAmount  float
+,smAmount  float
+,suvLuxury_Sur_Key  Bigint
+,suvLuxury_seat_fabric  map<time,text>
+,PRIMARY KEY());
+**Cassandra**
+ CREATE TABLE maintenanceCosts_Meta (
+cardinality_maintenanceCosts_cost_car  map<frozen<set<text>>,text>
+,cardinality_maintenanceCosts_cost_date  map<frozen<set<text>>,text>
+,is_Additive_maintenanceCosts_cost_car  map<frozen<set<text>>,Boolean>
+,is_Additive_maintenanceCosts_cost_date  map<frozen<set<text>>,Boolean>
+,PRIMARY KEY());
+
+**HBase**
+ create 'maintenanceCosts','maintenanceCosts','car',{NAME=> 'sedanLuxury', VERSIONS=>10},{NAME=> 'suvLuxury', VERSIONS=>10},'budget','Date','Base_Attributes'
+put 'maintenanceCosts', rowKeyValue, 'maintenanceCosts:cost', value
+put 'maintenanceCosts', rowKeyValue, 'car:car_color', value
+put 'maintenanceCosts', rowKeyValue, 'car:car_plateno', value
+put 'maintenanceCosts', rowKeyValue, 'car:car_seats', value
+put 'maintenanceCosts', rowKeyValue, 'car:car_capacity', value
+put 'maintenanceCosts', rowKeyValue, 'car:car_Sur_Key', value
+put 'maintenanceCosts', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper', value
+put 'maintenanceCosts', rowKeyValue, 'sedanLuxury:sedanLuxury_automatic_wiper_Time', value
+put 'maintenanceCosts', rowKeyValue, 'sedanLuxury:sedanLuxury_Sur_Key', value
+put 'maintenanceCosts', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric', value
+put 'maintenanceCosts', rowKeyValue, 'suvLuxury:suvLuxury_seat_fabric_Time', value
+put 'maintenanceCosts', rowKeyValue, 'suvLuxury:suvLuxury_Sur_Key', value
+put 'maintenanceCosts', rowKeyValue, 'budget:carBoolean', value
+put 'maintenanceCosts', rowKeyValue, 'budget:budget_Sur_Key', value
+put 'maintenanceCosts', rowKeyValue, 'Date:Date_date', value
+put 'maintenanceCosts', rowKeyValue, 'Date:Date_year', value
+put 'maintenanceCosts', rowKeyValue, 'Date:Date_day', value
+put 'maintenanceCosts', rowKeyValue, 'Date:Date_Sur_Key', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:sundryMaintenance_smAmount', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:regularServicing_servicingAmount', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:wheelBalancing_price', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:tyreReplacement_price', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:PUC_amount', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:insuranceRenewal_renewalCost', value
+put 'maintenanceCosts', rowKeyValue, 'Base_Attributes:breakdownRepair_amount', value
+**HBase**
+ create 'maintenanceCosts_Meta','is_Additive','cardinality'
+put 'maintenanceCosts_Meta', rowKeyValue, 'is_Additive: maintenanceCosts_cost_car', value
+put 'maintenanceCosts_Meta', rowKeyValue, 'cardinality: maintenanceCosts_cost_car', value
+put 'maintenanceCosts_Meta', rowKeyValue, 'is_Additive: maintenanceCosts_cost_date', value
+put 'maintenanceCosts_Meta', rowKeyValue, 'cardinality: maintenanceCosts_cost_date', value

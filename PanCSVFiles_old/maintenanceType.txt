@@ -1,0 +1,3 @@
+maintenanceType,id,no_update
+maintenanceType,name,no_update
+maintenanceType,desc,no_update

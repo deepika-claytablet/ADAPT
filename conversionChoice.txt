@@ -1,0 +1,2 @@
+starrelational,1
+columnfamily,0

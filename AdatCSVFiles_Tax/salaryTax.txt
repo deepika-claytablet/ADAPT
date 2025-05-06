@@ -1,0 +1,1 @@
+salary_tax,structrued,tax_on_salary,float

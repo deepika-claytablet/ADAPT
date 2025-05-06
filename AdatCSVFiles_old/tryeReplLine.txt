@@ -1,0 +1,1 @@
+tryeReplLine,structrued,amount,float

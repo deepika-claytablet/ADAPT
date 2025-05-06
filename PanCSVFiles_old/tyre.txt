@@ -1,0 +1,2 @@
+tyre,radial,no_update
+tyre,type,no_update

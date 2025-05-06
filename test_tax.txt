@@ -1,0 +1,112 @@
+
+
+create table if not exists Dim_filing_date (
+dd	 varchar(50),
+mm	 varchar(50),
+yyyy	 varchar(50),
+filing_date_SK	 varchar(50) PRIMARY KEY
+)
+alter table Dim_filing_date add date_Of_Original_Filing	 boolean;
+alter table Dim_filing_date add date_Of_Original_Filing_SK	 varchar(50) ;
+alter table Dim_filing_date add date_Of_Revised_Filing	 boolean;
+alter table Dim_filing_date add date_Of_Revised_Filing_SK	 varchar(50) ;
+
+create table if not exists Dim_tax_payer (
+attr1	 varchar(50),
+tax_payer_SK	 varchar(50) PRIMARY KEY
+)
+
+
+create table if not exists Dim_pan (
+number	 varchar(50),
+number_TMSP	 DATETIME,
+name	 varchar(50),
+name_TMSP	 DATETIME,
+pan_SK	 varchar(50) PRIMARY KEY
+)
+alter table Dim_tax_payer add pan_SK	 varchar(50) ;
+alter table Dim_tax_payer add foreign key (pan_SK) references Dim_pan(pan_SK);
+
+
+create table if not exists Dim_aadhar (
+number	 varchar(50),
+number_TMSP	 DATETIME,
+address	 varchar(50),
+address_TMSP	 DATETIME,
+name	 varchar(50),
+name_TMSP	 DATETIME,
+aadhar_SK	 varchar(50) PRIMARY KEY
+)
+alter table Dim_tax_payer add aadhar_SK	 varchar(50) ;
+alter table Dim_tax_payer add foreign key (aadhar_SK) references Dim_aadhar(aadhar_SK);
+
+
+create table tax_due (
+total_tax	float,
+tax_due_Key	varchar(50) PRIMARY KEY
+)
+
+alter table tax_due add filing_date_SK	varchar(50) ;
+alter table tax_due add foreign key (filing_date_SK) references Dim_filing_date(filing_date_SK);
+alter table tax_due add tax_payer_SK	varchar(50) ;
+alter table tax_due add foreign key (tax_payer_SK) references Dim_tax_payer(tax_payer_SK);
+
+
+create table analysis_property (
+Adat varchar(50), 
+Attribute varchar(50), 
+Pan varchar(50), 
+is_Additive boolean, 
+cardinality int, 
+Applicability boolean, 
+PRIMARY KEY (Adat, Attribute, Pan)
+); 
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tax_due', 'total_tax', 'filing_date', false, one to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tax_due', 'total_tax', 'tax_payer', true, one to many, true);
+
+
+create table dependentAdat (
+Adat_dependee varchar(50), 
+Adat_dependent varchar(50), 
+PRIMARY KEY (Adat_dependee, Adat_dependent)
+);  
+create table tax_on_income (
+tax_on_income	float,
+tax_on_income_Key	varchar(50) PRIMARY KEY
+)
+
+alter table tax_on_income add filing_date_SK	varchar(50) ;
+alter table tax_on_income add foreign key (filing_date_SK) references Dim_filing_date(filing_date_SK);
+alter table tax_on_income add tax_payer_SK	varchar(50) ;
+alter table tax_on_income add foreign key (tax_payer_SK) references Dim_tax_payer(tax_payer_SK);
+
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tax_on_income', 'tax_on_income', 'filing_date', false, one to many, false);
+insert into analysis_property (Adat, Attribute, Pan, is_Additive,cardinality,Applicability) values ('tax_on_income', 'tax_on_income', 'tax_payer', true, one to many, true);
+ 
+ create table complexContentFor_tax_on_income (
+tax_on_salary	float,
+tax_on_gain	float,
+itax	float,
+complexContentFor_tax_on_income_key	varchar(50) PRIMARY KEY );
+
+
+alter table complexContentFor_tax_on_income add filing_date_SK	varchar(50) ;
+alter table complexContentFor_tax_on_income add foreign key (filing_date_SK) references Dim_filing_date(filing_date_SK);
+alter table complexContentFor_tax_on_income add tax_payer_SK	varchar(50) ;
+alter table complexContentFor_tax_on_income add foreign key (tax_payer_SK) references Dim_tax_payer(tax_payer_SK);
+
+alter table tax_on_income add complexContentFor_tax_on_income_key	varchar(50)
+alter table tax_on_income add foreign key (complexContentFor_tax_on_income_key) references complexContentFor_tax_on_income(complexContentFor_tax_on_income_key);
+ create table complexContentFor_tax_due (
+tax_on_income	float,
+e_amount	float,
+complexContentFor_tax_due_key	varchar(50) PRIMARY KEY );
+
+
+alter table complexContentFor_tax_due add filing_date_SK	varchar(50) ;
+alter table complexContentFor_tax_due add foreign key (filing_date_SK) references Dim_filing_date(filing_date_SK);
+alter table complexContentFor_tax_due add tax_payer_SK	varchar(50) ;
+alter table complexContentFor_tax_due add foreign key (tax_payer_SK) references Dim_tax_payer(tax_payer_SK);
+
+alter table tax_due add complexContentFor_tax_due_key	varchar(50)
+alter table tax_due add foreign key (complexContentFor_tax_due_key) references complexContentFor_tax_due(complexContentFor_tax_due_key);

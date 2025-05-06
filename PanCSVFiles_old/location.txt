@@ -1,0 +1,3 @@
+Location,name,update
+Location,latitude,update
+Location,longitude,update

@@ -1,0 +1,1 @@
+sedanLuxury,automatic_wiper,no_update

@@ -1,0 +1,7 @@
+specialization,car,sedanLuxury
+specialization,car,suvLuxury
+specialization,car,budget
+specialization,damage,bodyScratch
+specialization,damage,bodyDamage
+specialization,damage,mbPart
+containment,tyreReplacementCompany,unitCompany

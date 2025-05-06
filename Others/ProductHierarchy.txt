@@ -1,0 +1,4 @@
+Product,Perishable
+Product,NonPerishable
+Perishable,Dairy_Perishable
+Perishable,Fruit_Perishable

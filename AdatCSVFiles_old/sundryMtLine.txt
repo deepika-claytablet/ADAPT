@@ -1,0 +1,2 @@
+sundryMtLine,structrued,amount,float
+sundryMtLine,structrued,quantity,float

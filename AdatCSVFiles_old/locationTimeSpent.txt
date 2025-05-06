@@ -1,0 +1,1 @@
+locationTimeSpent,structrued,restartTime,time

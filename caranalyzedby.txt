@@ -1,0 +1,16 @@
+totalCost,cost,date,true,zero to many,false
+totalCost,cost,car,true,zero to many,false
+totalCost,cost,customer,true,zero to many,false
+carDamageCost,damageCost,date,true,zero to many,false
+carDamageCost,damageCost,car,true,zero to many,false
+carDamageCost,damageCost,customer,true,zero to many,false
+carDamageCost,damageCost,damage,true,zero to many,false
+overtimeCost,overtimeCost,date,true,zero to many,false
+overtimeCost,overtimeCost,car,true,zero to many,false
+overtimeCost,overtimeCost,customer,true,zero to many,false
+perNightCost,dailyCost,date,true,zero to many,false
+perNightCost,dailyCost,car,true,zero to many,false
+perNightCost,dailyCost,customer,true,zero to many,false
+rentalRate,carFlatRate,date,true,zero to many,false
+rentalRate,carFlatRate,car,true,zero to many,false
+rentalRate,carFlatRate,customer,true,zero to many,false

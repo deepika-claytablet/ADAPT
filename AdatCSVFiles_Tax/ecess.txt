@@ -1,0 +1,1 @@
+ecess,structured,e_amount,float

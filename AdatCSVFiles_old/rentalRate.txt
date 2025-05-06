@@ -1,0 +1,1 @@
+rentalRate,structrued,carFlatRate,float
